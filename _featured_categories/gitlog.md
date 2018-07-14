@@ -6,6 +6,6 @@ menu: true
 submenu: true
 order: 2
 description: >
-  Git을 위한 블로그
+  Git을 위한 로그
 
 ---
