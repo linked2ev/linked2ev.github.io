@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Documents
-slug: doc
+title: Gitlog
+slug: gitlog
 menu: true
 submenu: true
 order: 7

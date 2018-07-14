@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Food
-slug: food
-category: review
+title: antmall
+slug: antmall
+category: gitlog
 menu: false
 order: 2
 ---

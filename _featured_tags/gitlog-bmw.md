@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Tip
-slug: tip
-category: tip
+title: bmw
+slug: bmw
+category: gitlog
 menu: false
 order: 1
 ---

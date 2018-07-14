@@ -13,12 +13,12 @@ url:                 https://linked2ev.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             개발자스럽지 않게.
+tagline:             개발자스럽지 않게
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  개발자스럽지 않게.
+  개발자스럽지 않게
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
@@ -47,10 +47,10 @@ google_fonts:        Lato
 google_analytics:    UA-92346434-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    isme2n
+disqus_shortname:    linked2ev
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by isme2n'
+copyright:           '&copy; 2018. by linked2ev'
 
 # Format of the permalinks
 permalink:           pretty
