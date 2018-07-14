@@ -8,7 +8,7 @@ linked2ev:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    개발자스럽지 않게
+    연어 좋아하는 개발자
 
   # This photo will be used in the about section
   picture:
@@ -57,8 +57,8 @@ linked2ev:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
-    email:           mailto:linked2ev@gmail.com
-    rss:             https://linked2ev.github.io/feed.xml
+    # email:           mailto:linked2ev@gmail.com
+    # rss:             https://linked2ev.github.io/feed.xml
 
 # Another author
 mdo:

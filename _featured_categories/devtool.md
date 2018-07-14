@@ -1,10 +1,10 @@
 ---
 layout: list
-title: Dev Tool
-slug: devtool
+title: Dev Sub
+slug: devsub
 menu: true
 submenu: true
 order: 5
 description: >
-  Dev Tool
+  개발에 도움 되는 것들
 ---

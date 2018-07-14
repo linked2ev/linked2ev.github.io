@@ -6,6 +6,6 @@ menu: true
 submenu: false
 order: 1
 description: >
-  Essay
-  
+  생각 저장소
+
 ---
