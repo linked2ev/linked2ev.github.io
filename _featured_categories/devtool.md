@@ -1,11 +1,10 @@
 ---
 layout: list
-title: Devlog
-slug: devlog
+title: Dev Tool
+slug: devtool
 menu: true
 submenu: true
-order: 3
+order: 5
 description: >
-  Dev
-
+  Dev Tool
 ---

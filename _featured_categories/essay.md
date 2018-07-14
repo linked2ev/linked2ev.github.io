@@ -6,5 +6,6 @@ menu: true
 submenu: false
 order: 1
 description: >
-  생각
+  Essay
+  
 ---

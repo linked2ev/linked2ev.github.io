@@ -1,11 +1,11 @@
 ---
 layout: list
-title: Devlog
-slug: devlog
+title: E-commerce
+slug: ecommerce
 menu: true
 submenu: true
-order: 3
+order: 4
 description: >
-  Dev
+  E-commerce
 
 ---
