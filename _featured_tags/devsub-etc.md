@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: etc
+title: Etc
 slug: etctool
-category: dev
+category: devsub
 menu: false
 order: 3
 ---
