@@ -216,7 +216,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
     ::debounceTime(2 * DURATION)
     ::effect(() => {
       // Send google analytics pageview
-      if (window.ga) window.ga('send', 'pageview');
+      // if (window.ga) window.ga('send', 'pageview'); // 구글 광고
 
       // Upgrade math blocks
       upgradeMathBlocks();
