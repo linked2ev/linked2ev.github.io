@@ -8,7 +8,7 @@ comments: true
 ---
 
 스프링부트에 대해 고견이 들어있는 고수님들의 블로그들이 많기에
-해당 블로그에서는 간단하게만 알아보겠다.
+해당 블로그에서는 간단하게만 알아보겠습니다.
 
 ## 스프링부트 소개
 
@@ -29,8 +29,13 @@ comments: true
 이클립스와 거의 비슷하다.
 
 우클릭 > New > Spring Starter Project
-![step1](/img/bmw/2018-07-15-createProjectStep1.png)
+[![프로젝트 생성 STEP1](/assets/img/bmw/2018-07-15-createProjectStep1.png)](#)
 
 
-테스트
-![step2](/img/bmw/2018-07-15-createProjectStep2.png)
+프로젝트명을 명시해주고 나는 빌드는 Gradle로 할 예정이다. Maven으로 해도 무방합니다.
+(추후에 Gradle과 Maven에 대한 포스트는 간단하게 작성하겠습니다.)
+[![프로젝트 생성 STEP2](/assets/img/bmw/2018-07-15-createProjectStep2.png)](#)
+
+
+스프링부트는 프로젝트 생성 시 정말 심플하긴 하다. 자기가 필요한 것은 체크하고 진행하면 됩니다.
+[![프로젝트 생성 STEP3](/assets/img/bmw/2018-07-15-createProjectStep3.png)](#)
