@@ -29,4 +29,8 @@ comments: true
 이클립스와 거의 비슷하다.
 
 우클릭 > New > Spring Starter Project
-![텍스트](/img/bmw/2018-07-15-sts create project step1.png)
+![step1](/img/bmw/2018-07-15-createProjectStep1.png)
+
+
+테스트
+![step2](/img/bmw/2018-07-15-createProjectStep2.png)
