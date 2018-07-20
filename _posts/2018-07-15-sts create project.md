@@ -2,7 +2,7 @@
 layout: post
 title:  "프로젝트 생성"
 subtitle:   "[bmw]"
-categories: bmw
+categories: gitlog
 tags: bmw
 comments: true
 ---
