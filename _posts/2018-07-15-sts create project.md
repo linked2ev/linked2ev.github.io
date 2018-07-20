@@ -33,11 +33,11 @@ comments: true
 
   
 프로젝트명을 명시해주고 나는 빌드는 Gradle로 할 예정이다.  
-Maven으로 해도 무방합니다.(추후에 Gradle과 Maven에 대한 포스트는 간단하게 작성 예정)
+Maven으로 해도 무방합니다.(추후 Gradle과 Maven에 대한 포스트는 작성 예정)
 [![프로젝트 생성 STEP2](/assets/img/bmw/2018-07-15-createProjectStep2.png)]()
 
   
-스프링부트는 프로젝트 생성 시 정말 심플하긴 하다.  
+스프링부트는 프로젝트 생성 시 정말 심플하긴 하다.
 자기가 필요한 것은 체크하고 진행하면 프로젝트가 세팅이 된다.
 [![프로젝트 생성 STEP3](/assets/img/bmw/2018-07-15-createProjectStep3.png)]()
 
