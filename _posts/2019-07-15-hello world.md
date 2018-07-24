@@ -32,9 +32,7 @@ public class BmwApplication {
 	}
 }
 ```
-  
 
-    
 3-1. BmwApplication 클래스
 위에 BmwApplication.java 클래스에 대해서 간단히 설명해 보면
 스프링부트는 단독실행 및 스크립트를 통한 실행을 지원하기위해
