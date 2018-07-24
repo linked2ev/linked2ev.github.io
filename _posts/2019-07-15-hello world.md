@@ -53,7 +53,7 @@ public class BmwApplication {
 3-3. @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 우선 임시로 mysql이 추가되어 있기에 DataSource자동 설정을 제외한다.
 
-</br></br>
+<br><br>
 
 ## 4. HomeController.java 생성
 
@@ -83,12 +83,12 @@ public class HomeController {
 @RestController는 data에 초점을 둔다고 생각 할 수 있다.  
 (추후 이와 관련 된 포스트는 따로 작성예정)
 
-</br>
+<br>
 
 [![Hello World STEP1](/assets/img/bmw/2018-07-15-HelloPrintStep1.png)]()  
   
 그럼 이만~
-</br></br>
+<br><br>
 
 ---
 스프링부트에 대해 이미 고견이 있는 고수님들의 블로그들이 많기에
