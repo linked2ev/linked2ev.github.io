@@ -33,12 +33,11 @@ public class BmwApplication {
 }
 ```
 
-3-1. BmwApplication 클래스
-위에 BmwApplication.java 클래스에 대해서 간단히 설명해 보면
-스프링부트는 단독실행 및 스크립트를 통한 실행을 지원하기위해
-스프링부트 개발 시 필수 클래스라고 생각하면 된다.
+3-1. BmwApplication 클래스  
+위에 BmwApplication.java 클래스에 대해서 간단히 설명하면 
+스프링부트를 단독실행 및 스크립트를 통한 실행을 지원하기 위한 필수 클래스라고 생각하면 된다.
 
-3-2. @SpringBootApplication
+3-2. @SpringBootApplication  
 @Configuration + @EnableAutoConfiguration + @ComponentScan 의 역할을 한다.
 + @Configuration  
 ㄴ해당 Java class가 Spring 환경 설정에 관련 된 파일이라는 것을 알려준다.
@@ -48,7 +47,7 @@ public class BmwApplication {
 ㄴ스프링 설정에서의 <context:component-scan base-package="com.example">와 같이  
   하위 패키지들을 스캔하여 Bean을 찾고 등록하는 역할이다.
 
-3-3. @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+3-3. @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})  
 우선 임시로 mysql이 추가되어 있기에 DataSource자동 설정을 제외한다.
 
 <br><br>
@@ -85,8 +84,31 @@ public class HomeController {
 
 [![Hello World STEP1](/assets/img/bmw/2018-07-15-HelloPrintStep1.png)]()  
   
-그럼 이만~
 <br><br>
+
+## 5. Hello World 출력
+
+스프링부트에서는 config설정들을 application.properties 파일에서 관리하는데  
+포트를 설정해준다.(기본은 80이다.)
+
+```xml
+server.port = 8070
+```
+<br>
+
+프로젝트 우클릭 > Run AS > Spring Boot App 실행
+
+[![Hello World STEP2](/assets/img/bmw/2018-07-15-HelloPrintStep2.png)]()  
+
+<br>
+
+이제 로컬에 localhost:8070/home 에 접속하면  
+아래와 같이 문구가 출력된다.
+
+[![Hello World STEP3](/assets/img/bmw/2018-07-15-HelloPrintStep3.png)]()
+
+그럼 이만~
+<br><br> 
 
 ---
 스프링부트에 대해 이미 고견이 있는 고수님들의 블로그들이 많기에
