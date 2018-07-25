@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Springboot]Hello World 로컬에서 출력하기"
+title:  "[Springboot] Hello World 로컬에서 출력하기"
 subtitle:   "[Springboot]"
 categories: gitlog
 tags: bmw

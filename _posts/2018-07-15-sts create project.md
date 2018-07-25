@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Springboot]Spring boot 프로젝트 생성"
+title:  "[Springboot] Spring boot 프로젝트 생성"
 subtitle:   "[Springboot]"
 categories: gitlog
 tags: bmw

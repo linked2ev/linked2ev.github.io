@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MVC 패턴 구조로 변경"
-subtitle:   "[springboot]"
+title:  "[Springboot] MVC 패턴 구조로 변경 STEP1"
+subtitle:   "[Springboot]"
 categories: gitlog
 tags: bmw
 comments: true
