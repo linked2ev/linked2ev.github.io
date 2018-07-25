@@ -8,7 +8,8 @@ comments: true
 ---
 
 Springboot 프로젝트 초기 개발 환경설정은 저번 포스트에서 끝이 났다.  
-이번 포스트에서는 기본적인 스프링MVC 패턴 구조로 변경하겠다.
+이번 포스트부터는 스프링MVC 패턴 형태로 진행하겠다.  
+(임시로 스프링부트에서 jsp로 진행 후 걷어 낼 예정)
 
 
 ## 7. 패키지 구조 변경
@@ -33,7 +34,7 @@ public class NoticeBoardController {
 
 	@RequestMapping("/board/noticeBoard")
 	public String home() {
-		return "Hello, MVC!";
+		return "Hello, noticeBoard!";
 	}
 	
 }
