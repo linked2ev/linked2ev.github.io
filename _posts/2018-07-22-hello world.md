@@ -102,10 +102,16 @@ server.port = 8070
 
 <br>
 
-이제 로컬에 localhost:8070/home 에 접속하면  
+서버를 구동하면 콘솔창에 예쁘게 스프링부트가 찍힌다.
+
+[![Hello World STEP3](/assets/img/bmw/2018-07-15-HelloPrintStep3.png)]()  
+
+<br> 
+
+이제 브라우저에 localhost:8070/home 에 접속하면  
 아래와 같이 문구가 출력된다.
 
-[![Hello World STEP3](/assets/img/bmw/2018-07-15-HelloPrintStep3.png)]()
+[![Hello World STEP4](/assets/img/bmw/2018-07-15-HelloPrintStep4.png)]()
 
 그럼 이만~
 <br><br> 
