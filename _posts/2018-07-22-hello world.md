@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hello World 로컬에서 출력하기"
-subtitle:   "[블로그]"
+subtitle:   "[springboot]"
 categories: gitlog
 tags: bmw
 comments: true

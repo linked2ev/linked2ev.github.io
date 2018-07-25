@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spring boot 프로젝트 생성"
-subtitle:   "[블로그]"
+subtitle:   "[springboot]"
 categories: gitlog
 tags: bmw
 comments: true
