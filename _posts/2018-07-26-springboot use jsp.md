@@ -7,7 +7,7 @@ tags: bmw
 comments: true
 ---
 
-Springboot에서 스프링MVC처럼 jsp를 사용하기 위한 설정이다.
+Springboot에서 스프링MVC처럼 JSP를 사용하기 위한 설정이다.
 
 
 ## 8. 스프링부트 View
@@ -18,6 +18,7 @@ Springboot에서 스프링MVC처럼 jsp를 사용하기 위한 설정이다.
 
 우선 스프링부트에서 View는 아래처럼
 > 리소스 구조
+
 ```
 src
 └─ main
@@ -25,6 +26,7 @@ src
       └─ templates (View: thymeleaf, groovy, handlebars, velocity 등)
       └─ static    (css, js 등)
 ```
+
 작업을 하면 알아서 [템플릿엔진](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-web-applications.html#boot-features-spring-mvc-template-engines)들을 지원해준다.
 
 
@@ -47,9 +49,8 @@ src
 <br>
 
 > index.jsp
+
 ```html
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -65,6 +66,7 @@ src
 9-2. 스프링 servlet 설정처럼 스프링부트에서도 설정
 
 > 스프링 설정 dispatcher 파일
+
 ```xml
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass"  value="org.springframework.web.servlet.view.JstlView"/>
@@ -76,6 +78,7 @@ src
 <br>
 
 > 스프링부트 설정 pplication.properties 파일
+
 ```properties
 spring.mvc.view.prefix=/WEB-INF/views/
 spring.mvc.view.suffix=.jsp
@@ -107,4 +110,4 @@ dependencies {
 <br><br>
 
 --- 
-다음 계획은 우선 JSP방식으로 스프링MVC 패턴을 진행하고, 다시 스프링부트에서 지원하는 템플릿형태로 새로 진행하겠습니다. 실제로 구현해봐야 장단점을 알고 좋은지 알기 때문입니다.
+다음 계획은 우선 JSP방식으로 스프링MVC 패턴을 진행하고, 다시 스프링부트에서 지원하는 템플릿형태로 새로 진행하겠습니다. 실제로 구현해봐야 재밌죠.
