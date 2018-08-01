@@ -3,7 +3,7 @@ layout: post
 title:  "[Javascript] 1. Node.js란?"
 subtitle:   "[Javascript]"
 categories: devlog
-tags: Javascript
+tags: javascript
 comments: true
 ---
 
