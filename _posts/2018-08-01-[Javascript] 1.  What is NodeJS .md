@@ -27,7 +27,7 @@ comments: true
 
 ## 2. npm이란?
 
-npm(Node Packaged Modules)은 `Node.js로 만들어진 모듈을 인터넷에서 받아서 설치해주는 패키지 매니저`이다.
+npm(Node Package Modules)은 `Node.js로 만들어진 모듈을 인터넷에서 받아서 설치해주는 패키지 매니저`이다.
 
 이미 누군가가 만들어서 올려놓은 [모듈들을](https://www.npmjs.com/) 다운로드 받아서 쓰는 것이다.
 <br>
@@ -38,5 +38,6 @@ npm(Node Packaged Modules)은 `Node.js로 만들어진 모듈을 인터넷에서
 
 ---
 참고
++ [Node.js 소개 - 영상](https://www.youtube.com/watch?v=Vjt6LnYfA5Y)
 + [Node.js 개념](http://pyrasis.com/nodejs/nodejs-HOWTO)
 + [Node.js 특징](http://asfirstalways.tistory.com/43)
