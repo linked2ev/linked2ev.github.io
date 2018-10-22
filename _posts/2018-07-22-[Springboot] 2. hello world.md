@@ -3,7 +3,7 @@ layout: post
 title:  "[Springboot] 2. Hello World 로컬에서 출력하기"
 subtitle:   "[Springboot]"
 categories: gitlog
-tags: bmw
+tags: springboot
 comments: true
 ---
 

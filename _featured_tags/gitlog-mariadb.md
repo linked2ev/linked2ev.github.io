@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: antmall
-slug: antmall
+title: MariaDB
+slug: mariadb
 category: gitlog
 menu: false
 order: 2

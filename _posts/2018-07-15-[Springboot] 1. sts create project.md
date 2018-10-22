@@ -3,7 +3,7 @@ layout: post
 title:  "[Springboot] 1. Spring boot 프로젝트 생성"
 subtitle:   "[Springboot]"
 categories: gitlog
-tags: bmw
+tags: springboot
 comments: true
 ---
 

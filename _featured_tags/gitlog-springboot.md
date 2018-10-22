@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: bmw
-slug: bmw
+title: Springboot
+slug: springboot
 category: gitlog
 menu: false
 order: 1

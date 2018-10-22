@@ -3,7 +3,7 @@ layout: post
 title:  "[Springboot] 3. 프로젝트 git에 연동하기"
 subtitle:   "[Springboot]"
 categories: gitlog
-tags: bmw
+tags: springboot
 comments: true
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "[Springboot] 5. 스프링부트에서 View를 JSP사용"
 subtitle:   "[Springboot]"
 categories: gitlog
-tags: bmw
+tags: springboot
 comments: true
 ---
 

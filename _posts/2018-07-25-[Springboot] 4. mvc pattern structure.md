@@ -3,7 +3,7 @@ layout: post
 title:  "[Springboot] 4. MVC 패턴 구조로 변경 STEP1"
 subtitle:   "[Springboot]"
 categories: gitlog
-tags: bmw
+tags: springboot
 comments: true
 ---
 
