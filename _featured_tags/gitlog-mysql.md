@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: MariaDB
-slug: mariadb
+title: MySQL
+slug: mysql2
 category: gitlog
 menu: false
 order: 2
