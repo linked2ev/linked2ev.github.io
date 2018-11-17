@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: MySQL
-slug: mysql2
+slug: mysql
 category: gitlog
 menu: false
 order: 2
