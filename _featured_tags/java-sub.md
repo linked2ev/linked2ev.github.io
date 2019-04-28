@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: JAVA-Sub
-slug: sub
+title: Java-Sub
+slug: java-sub
 category: java
 menu: false
 order: 1

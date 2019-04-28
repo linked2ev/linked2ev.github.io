@@ -1,10 +1,10 @@
 ---
 layout: list
-title: JAVA
+title: Java 
 slug: java
 menu: true
 submenu: true
 order: 6
 description: >
-  JAVA
+  Java
 ---
