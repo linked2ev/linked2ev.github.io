@@ -6,5 +6,5 @@ menu: true
 submenu: true
 order: 6
 description: >
-  Java
+  Java를 위한 포스팅
 ---
