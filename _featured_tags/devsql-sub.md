@@ -2,7 +2,7 @@
 layout: tag-blog
 title: 개발관련 SQL
 slug: devsql-sub
-category: server
+category: database
 menu: false
 order: 1
 ---
