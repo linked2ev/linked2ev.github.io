@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Tomcat 개발이슈
-slug: tomcat-sub
+title: Server 개발이슈
+slug: server-sub
 category: server
 menu: false
 order: 1
