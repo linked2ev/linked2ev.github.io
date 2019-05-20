@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] 3. 웹 앱 vs 네이티브 앱 vs 하이브리드 앱"
+title:  "[WEB] 웹 앱 vs 네이티브 앱 vs 하이브리드 앱"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] 6. URL과 URI 설명"
+title:  "[WEB] URL과 URI 설명"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web

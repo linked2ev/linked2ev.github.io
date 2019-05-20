@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] 2. Javascript Web Service 발전"
+title:  "[WEB] Javascript Web Service 발전"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web

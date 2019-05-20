@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] 4. 모바일 웹 vs 반응형 웹"
+title:  "[WEB] 모바일 웹 vs 반응형 웹"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] 1. SPA 란?"
+title:  "[WEB] SPA 란?"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web
