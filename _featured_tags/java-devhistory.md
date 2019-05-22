@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: Java 개발 기록
-slug: java-sub
+slug: java-devhistory
 category: java
 menu: false
 order: 2
