@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Java 관련 포스팅
+title: Java 개발 기록
 slug: java-sub
 category: java
 menu: false
-order: 1
+order: 2
 ---
