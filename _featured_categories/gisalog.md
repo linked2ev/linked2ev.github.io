@@ -1,7 +1,7 @@
 ---
 layout: list
-title: 정보처리기사 실기
-slug: gisa
+title: 정보처리기사
+slug: gisalog
 menu: true
 submenu: true
 order: 9
