@@ -31,7 +31,7 @@ Proxy서버는 네트워크 중간에 위치하여 중개역할로써 Cache 등�
 
 그래서 클라이언트는 Proxy서버를 거쳐서 웹 서버에 가기 때문에 클라이언트의 IP정보를 Proxy서버에서 웹 서버로 요청할 때 X-Forwarded-For를 통해 보낸다.
 
-그러기 위해서는 `Apache/nginx 등 httpd 웹 서버에서 X-Forwarded-For를 따로 설정`해야 한다.
+그러기 위해서는 `Apache/Nginx 등 httpd 웹 서버에서 X-Forwarded-For를 따로 설정`해야 한다.
 
 
 <br><br>
