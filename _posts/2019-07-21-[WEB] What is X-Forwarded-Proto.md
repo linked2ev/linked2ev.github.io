@@ -34,6 +34,5 @@ AWS로 Elastic Load Balancer(ELB)로 Instance 인프라를 구성 할 경우, �
 ---
 참고:  
 [https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/X-Forwarded-Proto](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/X-Forwarded-Proto)  
-[https://www.lesstif.com/pages/viewpage.action?pageId=20775886](https://www.lesstif.com/pages/viewpage.action?pageId=20775886)  
 [https://meetup.toast.com/posts/163](https://meetup.toast.com/posts/163)  
-[자바 - 클라이언트 실제 접속 IP 가져오기](https://linked2ev.github.io/java/2019/05/22/JAVA-1-java-get-clientIP/)
+[자바 - 클라이언트 실제 http / https 가져오기](https://linked2ev.github.io/java/2019/07/21/JAVA-2.-java-get-http-htpps/)
