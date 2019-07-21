@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] HTTP 프록시(Proxy) 개념"
+title:  "[WEB] 프록시(Proxy) 개념"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web
@@ -12,8 +12,7 @@ comments: true
 <br>
 
 
-## 1. Proxy 서버란?
----
+# 1. Proxy 서버란?
 
 Proxy 란 대리 혹은 중계 Agent 로써의 의미이며, 프록시 서버는 클라이언트의 요청을 받아 중계하는 서버이다.
 
@@ -24,8 +23,7 @@ Proxy 란 대리 혹은 중계 Agent 로써의 의미이며, 프록시 서버는
 <br>
 
 
-## 2. Proxy 서버 특징
----
+# 2. Proxy 서버 특징
 
 - 익명성으로 보안의 목적으로 사용
 - 캐시를 이용한 요청 속도 개선
@@ -35,8 +33,7 @@ Proxy 란 대리 혹은 중계 Agent 로써의 의미이며, 프록시 서버는
 <br>
 
 
-## 3. Proxy 서버 캐시 활용
----
+# 3. Proxy 서버 캐시 활용
 
 웹 캐시(web cache) 또는 HTTP 캐시(HTTP cache)는 서버 지연을 줄이기 위해 웹 페이지, 이미지, 기타 유형의 웹 멀티미디어 등의 웹 문서들을 임시 저장한 후 
 
@@ -45,8 +42,7 @@ Proxy 란 대리 혹은 중계 Agent 로써의 의미이며, 프록시 서버는
 <br>
 
 
-## 4. Proxy 서버 종류
----
+# 4. Proxy 서버 종류
 
 프록시 서버가 서비스 서버에 작업하는 위치와 네트워크 구성에 따라서 크게 Forward Proxy/Reverse Proxy 로 구분된다.
 
