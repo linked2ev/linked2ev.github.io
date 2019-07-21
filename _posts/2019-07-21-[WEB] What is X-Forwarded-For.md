@@ -22,7 +22,7 @@ XFF는 HTTP Header 중 하나로 HTTP Server에 요청한 Client의 IP를 식별
 
 <br>
 
-## 클라이언트 -> Proxy 서버 -> 웹 서버 (웹 사이트)
+## 클라이언트 -> Proxy 서버 -> 웹 서버
 
 <br>
 
