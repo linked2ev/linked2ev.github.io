@@ -12,7 +12,7 @@ Springboot에서 스프링MVC처럼 JSP를 사용하기 위한 설정이다.
 
 ## 8. 스프링부트 View
 
-요즘은 Front-End/Back-End 나눠서 Restful하게 데이터 관점으로 REST 웹 서비스 방식으로 많이도  있다. 해당 프로젝트의 프론트는 React로 할 예정이다.
+요즘은 Front-End/Back-End 나눠서 Restful하게 데이터 관점으로 REST 웹 서비스 방식으로 많이도  있다. <del>해당 프로젝트의 프론트는 React로 할 예정이다.</del>
 
 그래도 jsp를 주로 접하기 때문에 정리하고 갈 생각이다.  
 

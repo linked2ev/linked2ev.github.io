@@ -73,7 +73,7 @@ HTTP의 기본 개념과 사상에 따른 웹 서비스이다. REST 아키텍처
 
 <br>
 
-## ROA (Resourece Oriened Architecture)
+## ROA (Resourece Oriented Architecture)
 ---
 
 `리소스` 지향 아키텍처
