@@ -12,13 +12,16 @@ Springboot Gradle 프로젝트 생성
 <br>
 
 ---
+
 > 개발 환경  
+
 - OS: Window 10
 - Dev Tool: Eclipse IDE 2019-06
 - JDK: 1.8(_221)
 - JAVA: 8
 - Framework: Springboot v2.1.7
 - Build Tool: Gradle v3
+
 ---
 
 <br>

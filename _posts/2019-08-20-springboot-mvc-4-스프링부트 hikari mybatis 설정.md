@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "2. springboot hikari + mybatis 설정"
+title:  "4. 스프링부트 hikari + mybatis 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-mvc
