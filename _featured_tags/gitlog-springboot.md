@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: springboot-jsp설정
+title: springboot-jsp
 slug: springboot
 category: gitlog
 menu: false
