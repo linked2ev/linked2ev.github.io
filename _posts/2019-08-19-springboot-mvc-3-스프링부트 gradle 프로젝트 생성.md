@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "3. Springboot Gradle 프로젝트 생성"
+title:  "3. 스프링부트 Gradle 프로젝트 생성"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-mvc
