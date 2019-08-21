@@ -84,9 +84,9 @@ dependencies {
 
 ```properties
 spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.hikari.jdbc-url={url}
-spring.datasource.hikari.username={username}
-spring.datasource.hikari.password={password}
+spring.datasource.hikari.jdbc-url=jdbc:mysql://localhost:3307/test?useUnicode=true&characterEncoding=utf-8
+spring.datasource.hikari.username=root
+spring.datasource.hikari.password=1111
 ```
 
 <br>
