@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[DB] WorkBench - Lost connection to MySQL server during query"
+title:  "[MariaDB] WorkBench - Lost connection to MySQL server during query"
 subtitle:   "[DB]"
 categories: database
 tags: dbtool-sub

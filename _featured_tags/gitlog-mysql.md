@@ -1,9 +1,0 @@
----
-layout: tag-blog
-title: MySQL
-slug: mysql
-category: gitlog
-menu: false
-order: 4
-header-img: "/img/icon/iconMySQL.png"
----

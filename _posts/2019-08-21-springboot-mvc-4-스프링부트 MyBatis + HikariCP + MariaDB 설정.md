@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "4. 스프링부트 HikariCP + MyBatis + MariaDB 설정"
+title:  "4. 스프링부트 MyBatis + HikariCP + MariaDB 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-mvc
 comments: true
 ---
 
-스프링부트 HikariCP + MyBatis + MariaDB 설정
-
+스프링부트 MyBatis + HikariCP + MariaDB 설정
 
 <br>
+
 
 ---
 
@@ -28,19 +28,21 @@ comments: true
 
 ---
 
-> 참고 포스팅
+> 참고 할 내용
 
 - [커넥션 풀이란?](https://linked2ev.github.io/spring/2019/08/14/Spring-3-%EC%BB%A4%EB%84%A5%EC%85%98-%ED%92%80%EC%9D%B4%EB%9E%80/)
+- [HikariCP - github](https://github.com/brettwooldridge/HikariCP)
+
 
 ---
 
 <br><br>
 
 
-# 1. Mybatis + hikariCP 의존성 추가
+# 1. Mybatis, MariaDB 의존성 추가
 
 - Mybatis기반으로 DBCP를 hikariCP를 진행하기 때문에 우선 `build.gradle`에서 아래와 같이 의존성을 추가한다.
-- 스프링부트 2.0 이상부터 기본적으로 커넥션 풀로 HikariCP를 지원하며 퍼시스턴스 프레임워크에 따라 dependencie를 추가한다.
+- 스프링부트 2.0 이상부터 기본적으로 커넥션 풀로 HikariCP를 지원한다.
 - Gradle도 의존성을 추가한 다음에 Maven Update처럼 해줘야 하므로 `프로젝트 우클릭 > Gradle > Reflash Gradle Project`
 - 다음으로 build path을 다시 잡아줘야 한다. [[참고]](https://linked2ev.github.io/gitlog/2019/08/19/springboot-mvc-3-springboot-gradle-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1/)
 
@@ -49,7 +51,7 @@ comments: true
 > 추가 부분
 
 ```gradle
-dependencies{... 
+dependencies{
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
     runtimeOnly 'mysql:mysql-connector-java'
 }
@@ -73,7 +75,7 @@ dependencies {
 <br>
 
 
-# 2. DB Datasource 정보 
+# 2. DB 연결 Datasource 정보 
 
 - 스프링 웹 프로젝트와 비슷하다. DataSource(데이터베이스 연결정보)에 접근 정보를 설정파일에 설정해 놓고 사용한다.
 
@@ -90,7 +92,7 @@ spring.datasource.hikari.password={password}
 <br>
 
 
-# 3. DB 접속 설정
+# 3. DB 커넥션 연결 설정
 
 ### 스프링 웹 프로젝트 설정
 ---
@@ -165,7 +167,7 @@ public class DatabaseConfiguration {
 <br><br>
 
 
-## 4. DB접속 확인
+## 4. DB 접속 확인
 
 - 어플리케이션을 구동하면 아래와 같은 콘솔을 볼 수 있다면 정상이다.
 
@@ -264,3 +266,4 @@ public class DatabaseConfiguration {
 - https://charlie-choi.tistory.com/203
 - https://taetaetae.github.io/2019/04/21/spring-boot-mybatis-mysql-xml/
 - http://www.mybatis.org/spring/ko/sqlsession.html
+- https://github.com/brettwooldridge/HikariCP
