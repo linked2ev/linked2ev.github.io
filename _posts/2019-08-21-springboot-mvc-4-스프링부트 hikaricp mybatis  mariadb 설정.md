@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "4. 스프링부트 hikari + mybatis 설정"
+title:  "4. 스프링부트 HikariCP + MyBatis + MariaDB 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-mvc
 comments: true
 ---
 
-작성 중...
+스프링부트 HikariCP + MyBatis + MariaDB 설정
 
 
 <br>
@@ -22,9 +22,9 @@ comments: true
 - JAVA: 8
 - Framework: Springboot v2.1.7
 - Build Tool: Gradle v3
-- DB: Mariadb
+- RDBMS: MariaDB
 	+ DBCP: hikariCP
-	+ SQL Mapper: MyBatis
+	+ Persistence Framework: MyBatis
 
 ---
 
