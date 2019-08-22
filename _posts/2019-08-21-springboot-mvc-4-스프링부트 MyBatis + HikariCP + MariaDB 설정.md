@@ -208,7 +208,7 @@ public class DatabaseConfiguration {
 		return new HikariConfig();
 	}
 	
-	@Bean
+	@Bean(destroyMethod="close")
 	public DataSource dataSource() throws Exception {
 		DataSource dataSource = new HikariDataSource(hikariConfig());
 		return dataSource;
