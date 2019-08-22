@@ -89,6 +89,7 @@ public class DatabaseConfiguration {
 
 [참고]
 
+- [Spring HikraiCP MySQL 옵션 설정 관련](https://linked2ev.github.io/spring/2019/08/22/Spring-HikraiCP-MySQL-%EC%98%B5%EC%85%98-%EC%84%A4%EC%A0%95-%EA%B4%80%EB%A0%A8/)
 - https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
 - https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
 - http://www.mybatis.org/mybatis-3/ko/configuration.html
