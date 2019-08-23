@@ -229,7 +229,7 @@ public interface BoardService {
 ## Data Access Layer인 Mapper 생성
 ---
 
-SI프로젝트에서는 Persistence Framework가 MyBatis일 경우 MyBatis 장점인 비즈니스 로직과 SQL구문을 나누는 방식인 @Repository를 사용한 DAO객체 만들거나 @Mapper을 이용해 Mapper 인터페이스를 만들어 `Data Access Layer(데이터 접근 계층)`을 구현하고 SQL구문이 있는 SQL Mapper 파일의 namespace와 id를 불러오는 방식이다. 
+스프링 프로젝트에서는 Persistence Framework가 MyBatis일 경우 MyBatis 장점인 비즈니스 로직과 SQL구문을 나누는 방식인 @Repository를 사용한 DAO객체 만들거나 @Mapper을 이용해 Mapper 인터페이스를 만들어 `Data Access Layer(데이터 접근 계층)`을 구현하고 SQL구문이 있는 SQL Mapper 파일의 namespace와 id를 불러오는 방식이다. 
 
 또한 SQL Mapper 작성 없이 Mapper 인터페이스 상에 @Select, @Insert, @Update, @Delete 등의 annotation을 통해 자바로만 객체지향 개발을 할 수 있다.
 
@@ -289,7 +289,7 @@ public interface BoardMapper {
 
 클라이언트의 요청을 처리한 후에 `Dispatcher가 @RequestMapping에 View Name으로 model를 사용자에게 보여주는 단계`이다.  
 
-스프링부트 프로젝트를 만들때 thymeleaf를 의존성이 추가된 것을 볼 수 있고 사용할려면 추가만 하면 된다. jsp와 문법만 상이하고 사용하면 된다.(배움은 필요하다.)
+스프링부트 프로젝트를 만들때 thymeleaf를 의존성이 추가된 것을 볼 수 있고 사용할려면 추가만 하면 된다. jsp와 문법만 상이하고 그냥 사용하면 된다.(배움은 필요하다.)
 
 아래는 view 역할을 하는 list.html은 thymeleaf 문법의 일부분이다.
 
@@ -360,7 +360,7 @@ implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 > thymeleaf 문법에 관련해서 정리가 잘 되어 다른 분에 블로그다. 가볍게 보시면 도움이 될 듯 하다.
 <br>- 참고: https://eblo.tistory.com/55
-<br><br>추후에 본인은 thymeleaf대신 handlebar라는 템플릿엔진으로 대체해 개발할 때, 템플릿엔진에 대해서 다시 알아보겠다.
+<br><br>추후에 thymeleaf대신 handlebar라는 템플릿엔진으로 대체해 개발할 때, 템플릿엔진에 대해서 다시 알아보겠습니다.
 
 <br><br>
 
