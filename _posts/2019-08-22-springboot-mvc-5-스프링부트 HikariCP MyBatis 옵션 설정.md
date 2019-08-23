@@ -12,6 +12,24 @@ comments: true
 <br>
 
 
+
+> 개발 환경  
+
+- OS: Window 10
+- Dev Tool: Eclipse IDE 2019-06
+- JDK: 1.8(_221)
+- JAVA: 8
+- Framework: Springboot v2.1.7
+- Build Tool: Gradle v3
+- RDBMS: MariaDB
+	+ DBCP: hikariCP
+	+ Persistence Framework: MyBatis
+
+---
+
+<br>
+
+
 ## HikariCP 설정
 
 HikariCP + MySQL 관련 추가 설정하는 방법이다.
@@ -51,6 +69,12 @@ spring.datasource.hikari.data-source-properties.useServerPrepStmts=true
     	<typeAlias type="neo.apps.board.dto.BoardDto" alias="BoardDto" />
     </typeAliases>
 </configuration>
+```
+
+예를 들어 테이블 컬럼명이 HIT_CNT이여도 자바객체에서 HITCNT로 맵핑
+
+```xml
+<setting name="mapUnderscoreToCamelCase" value="true" />
 ```
 
 <br>
