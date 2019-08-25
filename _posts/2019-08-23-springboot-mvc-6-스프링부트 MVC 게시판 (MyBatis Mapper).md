@@ -63,26 +63,28 @@ comments: true
 > BoardDto
 
 ```java
-public class BoardDto {
+public class BoardDto implements Serializable {
 	
-	public int idx;
+	private static final long serialVersionUID = 1L;
+	
+	public int boardIdx;
 	
 	public String title;
 	
 	public String content;
 	
-	public int hitcnt;
+	public int hitCnt;
 	
-	public String regid;
+	public String regId;
 	
-	public String regdate;
+	public String regDate;
 
-	public int getIdx() {
-		return idx;
+	public int getBoardIdx() {
+		return boardIdx;
 	}
 
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setBoardIdx(int boardIdx) {
+		this.boardIdx = boardIdx;
 	}
 
 	public String getTitle() {
@@ -101,34 +103,34 @@ public class BoardDto {
 		this.content = content;
 	}
 
-	public int getHitcnt() {
-		return hitcnt;
+	public int getHitCnt() {
+		return hitCnt;
 	}
 
-	public void setHitcnt(int hitcnt) {
-		this.hitcnt = hitcnt;
+	public void setHitCnt(int hitCnt) {
+		this.hitCnt = hitCnt;
 	}
 
-	public String getRegid() {
-		return regid;
+	public String getRegId() {
+		return regId;
 	}
 
-	public void setRegid(String regid) {
-		this.regid = regid;
+	public void setRegId(String regId) {
+		this.regId = regId;
 	}
 
-	public String getRegdate() {
-		return regdate;
+	public String getRegDate() {
+		return regDate;
 	}
 
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 
 	@Override
 	public String toString() {
-		return "BoardDto [idx=" + idx + ", title=" + title + ", content=" + content + ", hitcnt=" + hitcnt + ", regid="
-				+ regid + ", regdate=" + regdate + "]";
+		return "BoardDto [boardIdx=" + boardIdx + ", title=" + title + ", content=" + content + ", hitCnt=" + hitCnt
+				+ ", regId=" + regId + ", regDate=" + regDate + "]";
 	}
 }
 ```
@@ -268,8 +270,7 @@ public interface BoardMapper {
 
 	<select id="selectBoardList" parameterType="BoardDto" resultType="BoardDto">
 		SELECT
-				IDX
-				, TITLE
+				TITLE
 				, CONTENT
 				, HIT_CNT
 				, REG_ID
