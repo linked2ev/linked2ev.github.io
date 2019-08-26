@@ -204,13 +204,11 @@ boardDto.java를 아래와 같이 코드가 전부이다. 애너테이션을 선
 @ToString
 package neo.apps.board.dto;
 
-    private static final long serialVersionUID = 1L;
-
-    public int boardIdx;
+    public Integer boardIdx;
 
     public String title;
 
-    public String content;
+    public String contents;
 
     public int hitCnt;
 
