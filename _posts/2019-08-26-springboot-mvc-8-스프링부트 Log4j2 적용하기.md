@@ -12,6 +12,24 @@ comments: true
 <br><br>
 
 
+> 개발 환경  
+
+- OS: Window 10
+- Dev Tool: Eclipse IDE 2019-06
+- JDK: 1.8(_221)
+- JAVA: 8
+- Framework: Springboot v2.1.7
+- Build Tool: Gradle v3
+- RDBMS: MariaDB
+	+ DBCP: hikariCP
+	+ Persistence Framework: MyBatis
+- #Lombok #Log4j2
+
+---
+
+<br><br>
+
+
 # 1. Logging이란?
 
 프로그램을 개발 및 유지보수 그리고 에러 로그를 통해 어플리케이션 상태를 추적과 기록을 통해 모니터링이 가능하다. 
@@ -74,7 +92,7 @@ xml파일 설정 방법 외에 propeties 또는 json 파일로 설정이 가능�
 
 > log4j2.xml
 
-- 경로 src/main/resource
+- 경로: /src/main/resource
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -132,3 +150,36 @@ public class BoardController {
 
 > 다시 한번 기억하면, `SLF4J 라는 추상화된 인터페이스로 로그 코드를 작성하고, 스프링 주입을 통해서 실제 구현체 Logging Framework에서 로그 코드를 구현해서 출력한다.`
 <br><br>이어서 쿼리 로그 설정을 이어가겠습니다.
+
+
+<br><br>
+
+# #패턴 요소 설명
+
+패턴 요소 | 설명
+---- | ----
+%Logger{length} | Logger name을 축약할 수 있다. {length}는 최대 자리 수
+%thread | 현재 Thread 이름
+%-5level | 로그 레벨, -5는 출력의 고정폭 값
+%msg | 로그 메시지 (=%message)
+%n | new line
+${PID:-} | 프로세스 아이디
+%d | 로그 기록시간
+%p | 로깅 레벨
+%F | 로깅이 발생한 프로그램 파일명
+%M | 로깅일 발생한 메소드의 이름
+%l | 로깅이 발생한 호출지의 정보
+%L | 로깅이 발생한 호출지의 라인 수
+%t | 쓰레드 명
+%c | 로깅이 발생한 카테고리
+%C | 로깅이 발생한 클래스 명
+%m | 로그 메시지
+%r | 애플리케이션 시작 이후부터 로깅이 발생한 시점까지의 시간
+
+<br><br>
+
+
+---
+[참고]
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html#howto-configure-log4j-for-logging
+- https://jeong-pro.tistory.com/154
