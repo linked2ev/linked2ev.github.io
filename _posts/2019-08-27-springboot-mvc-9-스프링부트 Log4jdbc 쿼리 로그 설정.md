@@ -70,7 +70,13 @@ Parmeters: 3(Integer)
 
 하지만, 지금 log4jdbc-remix는 개발이 중단되고 현재는 log4jdbc-log4j2로 지원해준다. 
 
-스프링부트에 쿼리 로그를 위한 log4jdbc-log4j2를 적용하기 위해서는 설정 파일을 변경해준다.
+스프링부트에 쿼리 로그를 위한 log4jdbc-log4j2를 적용하기 위해서는 의존성 추가와 설정 파일을 변경해준다.
+
+> build.gradle
+
+```properties
+implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+```
 
 > application.properties
 
