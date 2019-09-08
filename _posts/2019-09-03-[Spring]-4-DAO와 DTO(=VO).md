@@ -43,4 +43,4 @@ DAO / DTO(VO)
 ---
 [참고]
 - https://m.blog.naver.com/PostView.nhn?blogId=ljc8808&logNo=220462395989&proxyReferer=https%3A%2F%2Fwww.google.com%2F
-- https://itmore.tistory.com/entry/%EC%9E%90%EB%B0%94-VO-DTO-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EC%8B%9D%EC%9D%B4-%EA%B0%99%EB%8B%A4%EA%B3%A0-%EB%98%91%EA%B0%99%EB%8B%A4%EA%B3%A0-%EC%83%9D%EA%B0%81%ED%95%98%EC%A7%80-%EB%A7%90%EC%9E%90
+- https://itmore.tistory.com/entry/자바-VO-DTO-차이점사용하는-방식이-같다고-똑같다고-생각하지-말자
