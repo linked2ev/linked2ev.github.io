@@ -29,6 +29,8 @@ comments: true
 
 > 참고 URL
 
+- https://linked2ev.github.io/spring/2019/09/15/서블릿과-스프링에서-Context(컨텍스트)란
+
 ---
 
 <br><br>
