@@ -41,7 +41,7 @@ comments: true
 [![sts-interceptor-12-01](/assets/img/devlog/201909/sts-interceptor-12-01.png)]()
 
 인터셉터란? 가로챈다는 뜻이다. 스프링의 Spring Context(ApplicationContext)기능으로 인터셉터는 임의의 URI를 호출시 DispatcherServlet에서 해당 Controller가 처리 되기 전과 후에 발생하는 이벤트이다.
-비슷한 역할로는 필터(Filiter)가 있다. 둘다 역할은 비슷하지만 차이가 있다.
+비슷한 역할로는 필터(Filter)가 있다. 둘다 역할은 비슷하지만 차이가 있다.
 
 <br>
 

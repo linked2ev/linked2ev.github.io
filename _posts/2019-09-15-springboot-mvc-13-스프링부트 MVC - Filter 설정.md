@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "13. 스프링부트 MVC - Filiter 설정"
+title:  "13. 스프링부트 MVC - Filter 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-mvc
@@ -97,7 +97,7 @@ XSS, CORS 처리하는 필터라는 가정하에 CORSFilter는 첫번째 방식�
 
 > CORSFilter.java(example)
 
-- neo.com.filiter
+- neo.com.filter
 
 ```java
 @Slf4j
@@ -159,7 +159,7 @@ public class FilterConfiguration implements WebMvcConfigurer {
 
 > XSSFilter.java(example)
 
-- neo.com.filiter
+- neo.com.filter
 
 ```java
 @Slf4j

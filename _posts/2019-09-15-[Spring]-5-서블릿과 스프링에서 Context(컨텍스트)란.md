@@ -54,7 +54,7 @@ DispatcherServlet이 여러 개일 경우 공통으로 사용할 빈들을 Root 
 </web-app>
 ```
 
-## `Root WebApplicationContex`
+## `Root WebApplicationContext`
 
 - `ContextLoaderListener`에 의해 생성되는 `Root WebApplicationContext`이며, 자식 Context에서 Root Context를 참조할 수 있다.
 - 여러 Servlet Context를 서로 공유해야 하는 빈들을 등록하고 설정할 때 사용
@@ -98,7 +98,7 @@ DispatcherServlet이 여러 개일 경우 공통으로 사용할 빈들을 Root 
 
 <br>
 
-> WebApplicationContext 이용한 프로그래밍 방식
+> WebApplicationInitializer 이용한 프로그래밍 방식
 
 ```java
 import org.springframework.web.WebApplicationInitializer;
