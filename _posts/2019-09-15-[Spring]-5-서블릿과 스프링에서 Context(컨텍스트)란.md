@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "서블릿과 스프링에서 Context(컨텍스트)란?"
+title:  "[Spring] 서블릿과 스프링에서 Context(컨텍스트)란?"
 subtitle:   "[spring]"
 categories: spring
 tags: spring-posting
