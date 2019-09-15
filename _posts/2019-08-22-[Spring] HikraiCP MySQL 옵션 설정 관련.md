@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Spring] HikraiCP MySQL 옵션 설정 관련"
-subtitle:   "[springboot]"
+subtitle:   "[spring]"
 categories: spring
 tags: spring-devhistory
 comments: true
