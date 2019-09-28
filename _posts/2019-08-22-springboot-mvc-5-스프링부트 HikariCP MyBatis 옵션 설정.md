@@ -71,7 +71,7 @@ spring.datasource.hikari.data-source-properties.useServerPrepStmts=true
 </configuration>
 ```
 
-예를 들어 테이블 컬럼명이 HIT_CNT이여도 자바객체에서 HITCNT로 맵핑
+예를 들어 테이블 컬럼명이 HIT_CNT이여도 자바객체에서 hitCnt로 맵핑
 
 ```xml
 <setting name="mapUnderscoreToCamelCase" value="true" />
