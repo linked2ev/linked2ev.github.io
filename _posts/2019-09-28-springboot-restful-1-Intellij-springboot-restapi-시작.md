@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Intellij] springboot restapi 시작"
+title:  "1. springboot restapi 시작"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-restful
@@ -26,5 +26,6 @@ comments: true
 - Framework: Springboot v2.1.8
 - Build Tool: Gradle v3
 - RDBMS: MariaDB
+
 ---
 

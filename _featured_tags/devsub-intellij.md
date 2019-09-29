@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Etc
-slug: etctool
+title: IntelliJ
+slug: intellij
 category: devsub
 menu: false
-order: 4
+order: 2
 ---

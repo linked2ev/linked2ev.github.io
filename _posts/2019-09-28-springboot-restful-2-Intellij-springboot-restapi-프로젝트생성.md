@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Intellij] springboot restapi 프로젝트생성"
+title:  "2. springboot restapi 프로젝트생성"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-restful
@@ -21,6 +21,7 @@ comments: true
 - Framework: Springboot v2.1.8
 - Build Tool: Gradle v3
 - RDBMS: MariaDB
+
 ---
 
 > 참고 URL
@@ -32,6 +33,7 @@ comments: true
 
 # Intellij로 스프링부트 프로젝트 생성
 
+> 상단 메뉴 > File > New > Project
 
 [![intellj-project-create-s1](/assets/img/devlog/201909/intellj-project-create-s1.png)]()
 
