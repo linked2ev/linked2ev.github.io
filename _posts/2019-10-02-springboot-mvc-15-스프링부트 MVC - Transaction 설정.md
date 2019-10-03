@@ -7,7 +7,7 @@ tags: springboot-mvc
 comments: true
 ---
 
-이번에는 트렌잭션 설정에 대해서 진행하겠습니다.
+이번에는 트랜잭션 설정에 대해서 진행하겠습니다.
 
 <br><br>
 
@@ -36,7 +36,7 @@ comments: true
 
 # 트랜잭션이란
 
-트랜잭션(Transaction)은 데이터베이스의 상태를 변환시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위 또는 한꺼번에 모두 수행되어야 할 일련의 연산들을 의미한다.
+트랜잭션(Transaction)은 데이터베이스의 상태를 변환시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위 또는 `한꺼번에 모두 수행되어야 할 일련의 연산들을 의미`한다.
 
 <br>
 
@@ -44,10 +44,10 @@ comments: true
 
 ACID | 설명
 ---- | ----
-Atomicity(원자성) | 트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.(All or Nothing) 
-Consistency(일관성) | 트랜잭션이 성공적으로 완료하면 일관성 있는 데이터베이스 반영한다.
-Isolation(독립성,격리성) | 트랜잭션은 독립적으로 처리되며, 서로간의 트랜잭션은 간섭(연산) 할 수 없다.
-Durablility(영속성,지속성) | 성공적으로 완료된 트랜잭션의 결과는 영구적으로 지속되어야 한다.
+`Atomicity`<br>(원자성) | 트랜잭션의 연산은 데이터베이스에 모두 반영되든지 아니면 전혀 반영되지 않아야 한다.(All or Nothing) 
+`Consistency`<br>(일관성) | 트랜잭션이 성공적으로 완료하면 일관성 있는 데이터베이스 반영한다.
+`Isolation`<br>(독립성,격리성) | 트랜잭션은 독립적으로 처리되며, 서로간의 트랜잭션은 간섭(연산) 할 수 없다.
+`Durablility`<br>(영속성,지속성) | 성공적으로 완료된 트랜잭션의 결과는 영구적으로 지속되어야 한다.
 
 <br>
 
@@ -57,6 +57,8 @@ Durablility(영속성,지속성) | 성공적으로 완료된 트랜잭션의 결
 
 선언적 트랜잭션은 설정 파일이나 어노테이션을 이용해서 트랜잭션의 범위, 롤백 규칙 등을 정의하여 처리 한다.
 
+우선 트랜잭션을 적용하기 위해서는 트랜잭션 매니저를 설정해줘야 한다.
+
 <br>
 
 
@@ -64,6 +66,7 @@ Durablility(영속성,지속성) | 성공적으로 완료된 트랜잭션의 결
 ---
 
 - @Transactional 애너테이션을 이용하여 원하는 메서드나 클래스 등에 속성을 주어 트랜잭션을 기능 구현에 맞게 적용할 수 있다.
+- `<tx:annotation-driven />`은 @Transactional 애노테이션을 이용한 트랜잭션을 관리한다.
 
 <br>
 
@@ -74,6 +77,8 @@ Durablility(영속성,지속성) | 성공적으로 완료된 트랜잭션의 결
 <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="dataSource"/>
 </bean>
+
+<tx:annotation-driven />
 ```
 
 > 비즈니스 로직 메서드
@@ -114,7 +119,15 @@ public int insertBoard(HttpServletRequest request, BoardDto boardDto) throws Exc
 	<aop:pointcut id="requiredTx" expression="execution(* neo..apps..service.*Impl.*(..))"/>
 	<aop:advisor advice-ref="txAdvice" pointcut-ref="requiredTx" />
 </aop:config>
+
+<tx:annotation-driven />
 ```
+
+<br><br>
+
+@Transactional 어노테이션은 `<aop>`설정과 별개이며, 어노테이션 트랜잭션은 `<tx:annotation-driven />` 설정으로 적용된다.
+
+그리고 스프링에서 트랜잭션의 우선순위는 메서드 > 클래스 > 인터페이스 순서로 적용한다.
 
 <br><br>
 
@@ -125,10 +138,13 @@ public int insertBoard(HttpServletRequest request, BoardDto boardDto) throws Exc
 
 <br>
 
+
 ## `@Transaction 애너테이션`을 이용한 방식
 ---
 
-XML 네임스페이스에있는 `<tx:*>`과 유사한 스프링의 애너테이션 중심 트랜잭션 관리 기능을 사용하기 위해 `@Configuration`을 선언 된 Database 자바설정파일에 스프링에서 제공하는 어노테이션 트랜잭션인 `@EnableTransactionManagement`를 추가해서 트랜잭션 매니저를 아래와 같이 설정한다.
+XML 네임스페이스에있는 `<tx:*>`과 유사한 스프링의 애너테이션 중심 트랜잭션 관리 기능을 사용하기 위해 `<tx:annotation-driven />`의 역할을 하는 `@EnableTransactionManagement`를 선언한다.
+
+그리고 트랜잭션을 사용하기 위해 트랜잭션매니저를 적용하면 된다.
 
 <br>
 
@@ -208,7 +224,9 @@ public class TransactionAspect {
 
 <br><br>
 
-이와 같이 설정하면 된다. 이제 트랜잭션 설정이 된 구현체에서 강제로 에러를 발생시켜서 확인해보면 된다.
+이와 같이 설정하면 된다. 이제 트랜잭션 설정이 된 *serviceImpl 클래스내 모든 메서드에서 에러 발생 시 롤백이 된다. 
+
+이제 확인 차 serviceImpl에서 강제로 에러를 발생시켜서 확인해보면 된다.
 
 ```java
 public BoardDto selectBoard(HttpServletRequest request, int boardIdx) throws Exception {
