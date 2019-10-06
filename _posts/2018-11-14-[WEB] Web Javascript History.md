@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "[WEB] Javascript Web Service 발전"
+title:  "[WEB] Javascript 웹 서비스 발전"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web
 comments: true
 ---
 
-이 포스팅의 주제가 Javascript Web Service 발전인데 포스팅 내용과 맞는지 잘 모르겠다.  
+이 포스팅의 주제가 Javascript 웹 서비스 발전인데 포스팅 내용과 맞는지 잘 모르겠다.  
 
 우선 작성자가 아직 코린이고 jQuery부터 학습한 비전공자이기에 많은 javascript 여러 라이브러리들을 직접적으로 접한 프로젝트는 많지 않지만 중국어를 공부 할 때도 이상하게 문법을 좋아했는데 그래서 그런지 이런 것들(?)에 재미를 느낀다.
 
