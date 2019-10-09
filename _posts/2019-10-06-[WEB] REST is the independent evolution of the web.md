@@ -8,11 +8,15 @@ comments: true
 ---
 
 
-예전에는 어플리케이션의 클라이언트의 `FrontEnd` 영역인 vue/nuxt 카테고리를 작성할 때 ["Javascript 웹 서비스 발전"](https://linked2ev.github.io/devlog/2018/11/14/WEB-Web-Javascript-History/)이라는 포스팅을 작성했다. 시간이 많이 흘렀지만, 이어서 FrontEnd와 BackEnd 서버가 분리되어 독립 된 아키텍쳐 `REST`에 대해서 정리 할 예정이고
-
 RESTful과 REST API에 대한 키워드 잠시 넣어두고, `REST`라는 키워드로만 접근해야 한다.
 
 <br><br>
+
+
+
+예전에는 어플리케이션의 클라이언트의 `FrontEnd` 영역인 vue/nuxt 카테고리를 작성할 때 ["Javascript 웹 서비스 발전"](https://linked2ev.github.io/devlog/2018/11/14/WEB-Web-Javascript-History/)이라는 포스팅을 작성했다. 시간이 많이 흘렀지만, 이어서 FrontEnd와 BackEnd 서버가 분리되어 독립 된 아키텍쳐 `REST`에 대해서 정리 할 예정이다.
+
+<br>
 
 
 # 웹 서비스 기술은 계속 `진화`
@@ -87,6 +91,8 @@ REST 일관성 있는 `인터페이스의 4가지 원칙`에 대한 가이드
 2. 표현을 통한 리소스 처리
 3. 자기-서술적 메시지 (Self-descriptive messages)
 4. 애플리케이션 상태 엔진으로서의 하이퍼미디어(HATEOAS)
+
+정말 로이 필딩이 추구하는 REST를 따르겠다면 Self-descriptive messages와 HATEOAS를 만족해야 한다고 하며 그렇지 않으면 HTTP API, WEB API로 칭하거나 그냥 REST API로 부를 수 있다.
 
 <br>
 
