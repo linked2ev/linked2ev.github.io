@@ -4,7 +4,7 @@ title: Server
 slug: server
 menu: true
 submenu: true
-order: 7
+order: 8
 description: >
   Server에 관한 포스팅
 ---

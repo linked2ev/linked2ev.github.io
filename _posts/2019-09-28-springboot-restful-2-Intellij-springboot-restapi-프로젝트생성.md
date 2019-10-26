@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "2. springboot restapi 프로젝트생성"
+title:  "2. springboot restapi 프로젝트 생성"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-restful
 comments: true
 ---
 
-`Intellij`로 `restful`하게 스프링부트 restapi 프로젝트를 개발해보자. 스프링부트에 대해서는 알고 있다는 전제로 작성~
+`Intellij`로 스프링부트를 활용하여 restapi 프로젝트 생성
 
 <br><br>
 
