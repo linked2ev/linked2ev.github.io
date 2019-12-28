@@ -7,14 +7,19 @@ tags: web
 comments: true
 ---
 
+RESTful 디자인에 있어서 정리한 내용입니다.
 
+<br>
 
-URI 설계시 주의할 점
+요즘 웹어플리케이션에 있어서 react, angular, vue 등 javascript 진화, 넥사크로 등 UI 개발플랫폼 툴, 여러 타 기종, OPEN API, 독립적인 시스템 등 각 기술에 맞는 새로운 어플리케이션과 시스템이 만들어지고 리뉴얼하고 있다. 이런한 시대에 효율적인 디자인이 필요하다.
 
+그래서 RESTful 디자인으로 독립적인 API서버를 설계하면 이러한 이슈들에 대해 시스템이 오래되어도 유연하고 확장성이 좋다.
 
-RESTful 디자인에 있어서 URI는 정보의 자원을 표현해야 하며, 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
+<br>
 
-해당 포스팅의 길어보이는 내용을 간단하게 정리한 표이다. 다들 대충은 아는 내용이기에 슥~ 보면 좋을 듯 합니다.
+RESTful 디자인에 있어서 `URI는 정보의 자원을 표현`해야 하며, `자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현`한다.
+
+해당 포스팅의 길어보이는 내용을 간단하게 정리한 표이다.
 
 <br>
 
@@ -252,7 +257,7 @@ http://restapi.com/leagues/premier/teams/chelsea/players
 `200(OK)` | 클라이언트의 요청을 정상적으로 수행했을 경우
 `201(Created)` | 해당 리소스가 성공적으로 생성된 경우
 `204(No Content)` | 성공했으나 의도적으로 응답 본문에 추가 정보가 포함되지 않은 경우
-301(Moved Permanentl)	| 클라이언트가 요청한 리소스에 대한 URI가 변경 되었을 때 사용하는 응답 코드, 응답 시 Location header에 변경된 URI 기술
+`301(Moved Permanentl)`	| 클라이언트가 요청한 리소스에 대한 URI가 변경 되었을 때 사용하는 응답 코드, 응답 시 Location header에 변경된 URI 기술
 `400(Bad Request)` | 클라이언트의 요청이 부적절 할 경우 사용하는 응답 코드
 `401(Unauthorized)` | 클라이언트가 인증에 문제가 있을 때 응답 코드
 `403(Forbidden)` | 클라이언트가 인증상태와 상관없이 허용된 범위 외의 리소스에 엑세스를 금지할 때 사용<br>(403 보다는 400이나 404를 사용할 것을 권고. 403 자체가 리소스가 존재한다는 의미이기에)

@@ -27,9 +27,11 @@ restful 방식으로 게시판으로 변경
 
 > 관련 URL
 
+- [RESTful과 REST API](https://linked2ev.github.io/devlog/2019/10/09/WEB-RESTful-and-REST-API)
+- [RESTful 디자인]( https://linked2ev.github.io/devlog/2019/12/28/WEB-RESTful-design)
 ---
 
-개발 진행에 앞서 관련 URL를 보고 오면 도움이 되며, 해당 카테고리에서는 REST라는 키워드에 맞게 천천히라도 여러 형태로 관련 된 기능들에 대해서 적용하면서 정리 할 예정이다.
+<br><br>
 
 
 # REST란?
