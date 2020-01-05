@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "6. springboot profile(프로파일) 설명"
+title: "7. springboot 스프링 프로파일 설명"
 subtitle: "[springboot]"
 categories: gitlog
 tags: springboot-restful
 comments: true
 ---
 
-스프링 웹 프로젝트로 개발하면 로컬, 개발서버, 테스트서버, 운영서버 배포한경에 따라 프로파일 활용에 대한 포스팅이다.
+스프링 웹 프로젝트로 개발하면 로컬, 개발서버, 테스트서버, 운영서버 배포한경에 따라 프로파일에 대한 설명하는 포스팅
 
 <br><br>
 
@@ -29,7 +29,7 @@ comments: true
 
 ---
 
-<br><br>
+<br>
 
 ## 스프링 프로파일
 ---
