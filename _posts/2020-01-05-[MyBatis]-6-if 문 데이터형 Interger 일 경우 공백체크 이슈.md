@@ -50,10 +50,10 @@ public class Goods implements Serializable  {
 
 # 해결
 
-위에는 샘플이지만, Mybatis를 동적쿼리를 사용 하면 여러 개발자들이 하나의 쿼리를 사용하면서 if 문을 추가하는 경우가 많고 개발하다 보면 임의로 특정 컬럼에 0 을 넣어서 조건검색 하려고 할 때 아래와 같이 `!goodsIdx.equals("")`를 활용하면 된다.
+위에는 샘플이지만, Mybatis를 동적쿼리를 사용 하면 여러 개발자들이 하나의 쿼리를 사용하면서 if 문을 추가하는 경우가 많고 개발하다 보면 임의로 특정 컬럼에 0 을 넣어서 조건검색 하려고 할 때 아래와 같이 `!goodsIdx.equals('')`를 활용하면 된다.
 
 ```xml
-<if test="goodsIdx != null and !goodsIdx.equals("") ">
+<if test="goodsIdx != null and !goodsIdx.equals('') ">
     AND IDX = #{goodsIdx}
 </if>
 ```

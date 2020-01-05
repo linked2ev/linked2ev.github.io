@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "5. springboot Swagger-UI 적용"
-subtitle:   "[springboot]"
+title: "6. springboot Swagger-UI 적용"
+subtitle: "[springboot]"
 categories: gitlog
 tags: springboot-restful
 comments: true
