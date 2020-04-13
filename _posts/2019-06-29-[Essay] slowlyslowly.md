@@ -7,14 +7,7 @@ tags: essay
 comments: true
 ---
 
-천천히
 
-
-
-[![essay-logo_4](/assets/img/devlog/201906/essay-logo_4.jpg)]()
-
-<br><br>
-
-# 不怕慢，就怕站
+## 不怕慢，就怕站
 
 

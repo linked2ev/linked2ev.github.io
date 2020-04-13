@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "쉼표"
+title:  "시간"
 subtitle:   "[Essay]"
 categories: essay
 tags: essay
 comments: true
 ---
 
-## 쉼표
 
+## 포기와 인내
 

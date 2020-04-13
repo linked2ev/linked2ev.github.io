@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "쉼표"
+title:  "Jekyll 블로그"
 subtitle:   "[Essay]"
 categories: essay
 tags: essay
 comments: true
 ---
 
-## 쉼표
+## Jekyll 블로그를 시작하는 이유
 
-
+---
