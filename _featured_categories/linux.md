@@ -4,7 +4,7 @@ title: Linux
 slug: linux
 menu: true
 submenu: true
-order: 7
+order: 13
 description: >
   Linux에 관한 포스팅
 ---

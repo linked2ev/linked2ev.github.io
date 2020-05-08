@@ -4,7 +4,7 @@ title: Mybatis
 slug: mybatis
 menu: true
 submenu: true
-order: 6
+order: 12
 description: >
   Mybatis
 ---
