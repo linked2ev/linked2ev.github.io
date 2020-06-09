@@ -39,7 +39,7 @@ Visual Studio Code 로 개발 시에 유용한 Plugin 추천 모음 정리
 
 ## 4. npm
 
-[![vscode-s4](/assets/img/2020/06/vscode-s4_Npm.png)]()
+[![vscode-s4](/assets/img/2020/06/vscode-s4_npm.png)]()
 
 <br>
 
