@@ -82,4 +82,6 @@ Finder는 Mac 시동이 완료되면 나타나는 첫 번째 앱으로, 자동�
 ---
 [소소한 TIP]
 
-[맥북 Finder 파일 경로 및 경로 찾기]()
+> 파인더에서 폴덜의 경로 보기와 경로 검색 기능에 대한 포스팅이다.
+
+- [맥북 Finder 파일 경로 및 경로 찾기](https://linked2ev.github.io/devsub/2020/06/10/MacBook-맥북-Finder-파일-경로-및-경로-찾기/)
