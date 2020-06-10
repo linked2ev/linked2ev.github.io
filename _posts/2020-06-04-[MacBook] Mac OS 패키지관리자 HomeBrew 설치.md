@@ -17,10 +17,14 @@ MacBook] Mac OS 패키지관리자 HomeBrew 설치
 
 홈브루(Homebrew)는 오픈 소스 소프트웨어 `패키지 관리` 시스템의 하나로서 애플의 macOS 운영 체제의 소프트웨어 설치를 단순하게끔 도와준다. 리눅스 등 패키지 관리자인 yum, apt-get 와 비슷한 개념이며, 리눅스나 윈도우에서도 지원한다.
 
+Homebrew 에 대한 기본 명령어는 다른 포스팅을 찾아보면 좋을 듯 하다...
+
 <br>
 
 
 # HomeBrew 설치하기
+
+<br>
 
 > 터미널에 붙여넣기
 
@@ -48,6 +52,9 @@ MacBook] Mac OS 패키지관리자 HomeBrew 설치
 
 # Cask 설치하기
 
+<br>
+
+HomeBrew로만은 GUI 기반의 어플리케이션(크롬, atom 등)들을 설치 못하는데 가능하게끔 도와주는 패키지 cask 도 설치해줘야 한다.
 
 [![Cask-s1](/assets/img/2020/06/Cask-s1.png)]()
 
