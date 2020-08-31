@@ -70,4 +70,13 @@ Visual Studio Code 로 vue.js 개발 시에 유용한 Plugin 추천 모음 정�
 <br>
 
 
+## 7. devtools vue - chrome 확장프로그램 설치
+
+[![vscode-s7](/assets/img/2020/08/vue_plugin7_devtoolsVue.png)]()
+
+
+
+
+
+
 
