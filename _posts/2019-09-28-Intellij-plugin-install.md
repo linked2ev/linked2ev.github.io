@@ -15,7 +15,7 @@ comments: true
 # IntelliJ에 플러그인 설치
 
 
-1. File > Setting
+1. File > Setting or Preferences
 2. 왼쪽 메뉴에서 plugin 선택
 3. 설치 할 [`플러그인 명`] 검색
 
@@ -51,11 +51,20 @@ https://plugins.jetbrains.com/plugin/index?xmlId=GrepConsole
 <br>
 
 
-# Grep Console
+# key promoter
 
 > 마우스로 클릭시 단축키를 노티
 
 https://plugins.jetbrains.com/plugin/4455-key-promoter
+
+<br>
+
+
+# Request Mapper
+
+> mapping url 검색 (단축키 : Shift + Ctrl + Back slash)
+
+https://plugins.jetbrains.com/plugin/9567-request-mapper/
 
 <br>
 

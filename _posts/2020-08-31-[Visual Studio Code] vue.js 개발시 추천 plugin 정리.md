@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "[Visual Studio Code] vue.js 개발시 추천 plugin 정리"
+title:  "[Visual Studio Code] 2. vue.js 개발시 추천 plugin 정리"
 subtitle:   "[Visual Studio Code]"
-categories: VScode
+categories: devsub
 tags: vscode
 comments: true
 ---
 
+오랜만에 vue 에 대해서 조금씩 포스팅 할 계획
 
 Visual Studio Code 로 vue.js 개발 시에 유용한 Plugin 추천 모음 정리
-
-지속적으로 정리 업데이트 예정
+(지속적으로 정리 업데이트 예정)
 
 <br><br>
 
