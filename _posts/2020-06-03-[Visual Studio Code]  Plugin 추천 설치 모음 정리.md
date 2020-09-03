@@ -2,7 +2,7 @@
 layout: post
 title:  "[Visual Studio Code] Plugin 추천 설치 모음 정리"
 subtitle:   "[Visual Studio Code]"
-categories: VScode
+categories: devsub
 tags: vscode
 comments: true
 ---
