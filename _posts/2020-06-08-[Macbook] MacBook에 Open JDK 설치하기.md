@@ -1,14 +1,15 @@
 ---
 layout: post
-title:  "[JPA] MacBook에 Open JDK 설치하기"
-subtitle:  "[MacBook]"
-categories: JPA
-tags: jpa
+title:  "[MacBook] MacBook에 Open JDK 설치하기"
+subtitle: "[MacBook]"
+categories: devsub
+tags: macbook
 comments: true
 ---
 
 
 MacBook 에 JDK 설치를 위해 OpenJDK를 설치하는 포스팅이다.
+JPA 카테고리에 MacBook 카테고리로 이동..(JPA는 천천히 공부 중)
 
 <br><br>
 

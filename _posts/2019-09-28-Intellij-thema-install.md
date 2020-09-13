@@ -56,3 +56,16 @@ IntelliJ 테마 적용
 [![intellij-theme-s3-material-ui](/assets/img/devlog/201909/intellij-theme-s3-material-ui.png)]()
 
 <br>
+
+
+# Atom Material Icon
+
+> Atom Material File Icons
+
+- jetbrains : https://plugins.jetbrains.com/plugin/10044-atom-material-icons
+
+[![intellij-theme-s3-material-ui](/assets/img/devlog/2020/09/intellij-theme-s4-material-ui.png)]()
+
+
+<br>
+
