@@ -99,8 +99,8 @@ https://plugins.jetbrains.com/plugin/7495--ignore/
 
 <br>
 
-[![intellij-setting-s1](/assets/img/devlog/2020/09/plugin-ignore-s1.gif)]()
-[![intellij-setting-s1](/assets/img/devlog/2020/09/plugin-ignore-s2.gif)]()
+[![intellij-setting-s1](/assets/img/2020/09/plugin-ignore-s1.gif)]()
+[![intellij-setting-s1](/assets/img/2020/09/plugin-ignore-s2.gif)]()
 
 
 

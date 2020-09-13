@@ -64,7 +64,7 @@ IntelliJ 테마 적용
 
 - jetbrains : https://plugins.jetbrains.com/plugin/10044-atom-material-icons
 
-[![intellij-theme-s3-material-ui](/assets/img/devlog/2020/09/intellij-theme-s4-material-ui.png)]()
+[![intellij-theme-s3-material-ui](/assets/img/2020/09/intellij-theme-s4-material-ui.png)]()
 
 
 <br>
