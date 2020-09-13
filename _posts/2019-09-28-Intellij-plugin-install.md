@@ -62,7 +62,9 @@ https://plugins.jetbrains.com/plugin/4455-key-promoter
 
 # Request Mapper
 
-> mapping url 검색 (단축키 : Shift + Ctrl + Back slash)
+> mapping url 검색
+
+-단축키 : Shift + Ctrl + Back slash
 
 https://plugins.jetbrains.com/plugin/9567-request-mapper/
 
@@ -74,4 +76,31 @@ https://plugins.jetbrains.com/plugin/9567-request-mapper/
 > 괄호 계층 간 색상 적용
 
 https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/
+
+<br>
+
+
+# camelCase
+
+> CamelCase 변경
+
+- ⇧ + ⌥ + U / Shift + Alt + U
+
+https://plugins.jetbrains.com/plugin/10080-rainbow-brackets/
+
+<br>
+
+
+# .ignore
+
+> git ignore 설정
+
+https://plugins.jetbrains.com/plugin/7495--ignore/
+
+<br>
+
+[![intellij-setting-s1](/assets/img/devlog/2020/09/plugin-ignore-s1.gif)]()
+[![intellij-setting-s1](/assets/img/devlog/2020/09/plugin-ignore-s2.gif)]()
+
+
 
