@@ -26,6 +26,10 @@ intellij 단축키 모음
 - `shift` + `shift` : 전체 검색
 - `shift` + `E` : 최근 파일 검색
 - `command + shift + E` : 최근 수정 파일 검색
+- `command + F` : 검색 
+- `command + R` : 단어 바꾸기
+- `command + shift + F` : 프로젝트 내 전체 키워드를 검색
+- `command + shift + R` : 프로젝트 내 전체 키워드 Replace 기능
 
 <br>
 

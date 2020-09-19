@@ -84,6 +84,16 @@ brew cask install mysqlworkbench
 
 <br>
 
+> node.js / npm
+
+```
+brew install node
+npm install
+```
+
+<br>
+
+
 ## Etc
 
 > chrome
