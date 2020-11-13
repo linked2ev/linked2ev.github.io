@@ -51,6 +51,8 @@ IntelliJ 테마 적용
 
 > IntelliJ UI Theme
 
+개인적으로는 `Monocai`를 사용한다.
+
 - jetbrains : https://plugins.jetbrains.com/plugin/8006-material-theme-ui/
 
 [![intellij-theme-s3-material-ui](/assets/img/devlog/201909/intellij-theme-s3-material-ui.png)]()

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "[Javascript] 1. "
-subtitle:   "[Javascript]"
-categories: Javascript
+title:  "[Javascript] 1. window.location 속성 정리"
+subtitle: "[Javascript]"
+categories: javascript
 tags: javascript-devhistory
 comments: true
 ---

@@ -30,6 +30,8 @@ intellij 단축키 모음
 - `command + R` : 단어 바꾸기
 - `command + shift + F` : 프로젝트 내 전체 키워드를 검색
 - `command + shift + R` : 프로젝트 내 전체 키워드 Replace 기능
+- `command + L` : code line으로 번호로 찾기
+
 
 <br>
 
