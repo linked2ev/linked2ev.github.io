@@ -84,6 +84,16 @@ brew cask install mysqlworkbench
 
 <br>
 
+
+> DBeaver
+
+```
+brew cask install dbeaver-community
+```
+
+<br>
+
+
 > node.js / npm
 
 ```
@@ -92,6 +102,32 @@ npm install
 ```
 
 <br>
+
+
+## Client Terminal
+
+> zsh
+
+```
+# zsh 설치하기
+brew install zsh
+
+# zsh 설치경로 확인하기
+which zsh
+
+# 기본 shell 변경하기
+chsh -s $(which zsh)
+```
+
+<br>
+
+
+> iterm2
+
+```
+brew cask install iterm2
+```
+
 
 
 ## Etc
