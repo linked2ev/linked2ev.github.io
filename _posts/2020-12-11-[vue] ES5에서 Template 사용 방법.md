@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Vue] homebrew install 모음"
+title:  "[Vue] ES5에서 vue Template 사용 방법"
 subtitle:   "[Vue]"
 categories: vue
 tags: vue-devhistory
