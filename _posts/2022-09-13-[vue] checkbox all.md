@@ -1,12 +1,3 @@
----
-layout: post
-title:  "[Vue] homebrew install 모음"
-subtitle:   "[Vue]"
-categories: 
-tags: 
-comments: true
----
-
 
 homebrew install 모음
 
