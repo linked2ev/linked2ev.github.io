@@ -2,8 +2,8 @@
 layout: post
 title:  "[Vue] homebrew install 모음"
 subtitle:   "[Vue]"
-categories: vue
-tags: vue-devhistory
+categories: 
+tags: 
 comments: true
 ---
 

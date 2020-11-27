@@ -2,8 +2,8 @@
 layout: post
 title:  "[MacBook] homebrew install 모음"
 subtitle:   "[MacBook]"
-categories: devsub
-tags: macbook
+categories: 
+tags: 
 comments: true
 ---
 
