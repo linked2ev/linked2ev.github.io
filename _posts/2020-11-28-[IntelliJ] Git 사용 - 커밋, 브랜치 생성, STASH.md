@@ -63,9 +63,61 @@ $ git checkout develop
 
 [![idea-git-checkout-s01](/assets/img/2020/11/idea-git-checkout-s01.png)]() <br>
 
-
 [![idea-git-checkout-s02](/assets/img/2020/11/idea-git-checkout-s02.png)]() <br>
 
+<br><br>
+
+
+# FETCH(동기화) & MERGE (병합)
+
+```
+-- $ git checkout develop -- 현재 브랜치 위치
+$ git fetch
+$ git merge feature/test
+```
+
+[![idea-git-merge-s00](/assets/img/2020/11/idea-git-merge-s00.png)]() <br>
+
+[![idea-git-merge-s01](/assets/img/2020/11/idea-git-merge-s01.png)]() <br>
+
+[![idea-git-merge-s02](/assets/img/2020/11/idea-git-merge-s02.png)]() <br>
+
+<br><br>
+
+
+# RESET(되돌리기)
+
+```
+$ git reset <옵션> <돌아가고싶은 커밋tag 또는 기본 HEAD(기본 값)>
+```
+
+```
+$ git reset --hard
+$ git reset --hard 297311c
+```
+
+> --hard 옵션
+
+- staging area, working directory 모두 reset
+- HEAD / Index / working directory Reset
+
+<br>
+
+> --mixed
+
+- staging area만 reset, working directory의 개발 내용 유지
+
+<br>
+
+> --soft
+
+- reset하기 전까지 했던 staging area, working directory의 작업 유지
+
+<br>
+
+[![idea-git-reset-s01](/assets/img/2020/11/idea-git-reset-s01.png)]() <br>
+
+[![idea-git-reset-s02](/assets/img/2020/11/idea-git-reset-s02.png)]() <br>
 
 <br><br>
 
