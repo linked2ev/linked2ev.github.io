@@ -27,7 +27,7 @@ $ git push origin
 
 [![idea-git-commit-s02](/assets/img/2020/11/idea-git-commit-s02.png)]() <br>
 
-<br>
+<br><br>
 
 
 # BRANCH (브랜치 생성 & 원격 저장소 브랜치 생성)
@@ -52,7 +52,22 @@ $ git push --set-upstream origin feature/test
 
 [![idea-git-branch-s07](/assets/img/2020/11/idea-git-branch-s07.png)]() <br>
 
-<br>
+<br><br>
+
+
+# CHEKCOUT (브랜치 이동)
+
+```
+$ git checkout develop
+```
+
+[![idea-git-checkout-s01](/assets/img/2020/11/idea-git-checkout-s01.png)]() <br>
+
+
+[![idea-git-checkout-s02](/assets/img/2020/11/idea-git-checkout-s02.png)]() <br>
+
+
+<br><br>
 
 
 # STASH (임시저장소 생성)
@@ -75,7 +90,8 @@ $ git stash save  "stash test"
 
 [![idea-git-stash-s03](/assets/img/2020/11/idea-git-stash-s03.png)]() <br>
 
-<br>
+<br><br>
+
 
 # UNSTASH (임시저장소 불러오기)
 
@@ -93,10 +109,6 @@ $ git stash clear -- 스태시 삭제
 [![idea-git-unstash-s01](/assets/img/2020/11/idea-git-unstash-s01.png)]() <br>
 
 [![idea-git-unstash-s02](/assets/img/2020/11/idea-git-unstash-s02.png)]() <br>
-
-<br>
-
-
 
 <br><br>
 
