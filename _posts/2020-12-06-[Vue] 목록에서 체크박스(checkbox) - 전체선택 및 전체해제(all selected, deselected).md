@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "[Vue] 목록에서 체크박스 - list checkbox checked, all selected"
+title:  "[Vue] 목록에서 체크박스(checkbox) - 전체선택 및 전체해제(all selected, deselected)"
 subtitle:   "[Vue]"
 categories: vue
 tags: vue-devhistory
 comments: true
 ---
 
-[Vue] 목록에서 체크박스 - list checkbox checked, all selected
+Vue에서 체크박스 전체 선택 및 전체 해제에 대한 코드 포스팅
 
 <br><br> 
 

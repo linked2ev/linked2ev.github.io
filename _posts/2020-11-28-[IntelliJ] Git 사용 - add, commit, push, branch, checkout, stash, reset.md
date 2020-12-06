@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[IntelliJ] Git 사용 - 커밋, 브랜치 생성, STASH"
+title:  "[IntelliJ] Git 사용 - add, commit, push, branch, checkout, stash, reset"
 subtitle:   "[IntelliJ]"
 categories: devsub
 tags: intellij
