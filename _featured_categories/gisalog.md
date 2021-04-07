@@ -2,7 +2,7 @@
 layout: list
 title: 정보처리기사
 slug: gisalog
-menu: true
+menu: false
 submenu: true
 order: 26
 description: >
