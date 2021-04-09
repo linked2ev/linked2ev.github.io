@@ -164,4 +164,17 @@ async function fnEmployee () {
 	//...코드
 }
 ```
+
+<br>
+
+> 다른 예제 코드
  
+```js
+var isValid = async function () {
+	var isBln = false;
+	await this.fnValid.then((ret)=> {
+		isBln = ('Y' == ret);
+	}, isBln);
+	return isBln;
+}
+```
