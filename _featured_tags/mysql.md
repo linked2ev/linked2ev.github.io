@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: R
-slug: r
+title: MySQL/MariaDB
+slug: mysql
 category: database
 menu: false
-order: 4
+order: 3
 ---

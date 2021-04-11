@@ -75,11 +75,19 @@ brew cask install intellij-idea
 
 <br>
 
+> MySql
+
+```
+brew install mysql
+```
+
+<br>
+
 
 > MySql Workbench
 
 ```
-brew cask install mysqlworkbench
+brew install --cask mysqlWorkbench 
 ```
 
 <br>
@@ -88,7 +96,7 @@ brew cask install mysqlworkbench
 > DBeaver
 
 ```
-brew cask install dbeaver-community
+brew install --cask dbeaver-community
 ```
 
 <br>

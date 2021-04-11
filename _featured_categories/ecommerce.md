@@ -2,7 +2,7 @@
 layout: list
 title: E-commerce
 slug: ecommerce
-menu: true
+menu: false
 submenu: true
 order: 25
 description: >
