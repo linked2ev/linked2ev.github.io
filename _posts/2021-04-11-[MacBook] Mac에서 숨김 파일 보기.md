@@ -7,6 +7,9 @@ tags: macbook
 comments: true
 ---
 
+Mac Finder에서 숨김 파일 보기/찾기
+
+<br><br>
 
 ## 숨겨진 파일 보기
 
