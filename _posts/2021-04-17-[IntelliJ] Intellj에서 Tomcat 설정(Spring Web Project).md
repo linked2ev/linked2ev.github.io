@@ -13,7 +13,7 @@ comments: true
 <br><br>
 
 
-# Tomcat 설정하기
+# 스프링 프로젝트 Tomcat 설정하기
 
 ## 1. Run > EditConfigurations...
 
@@ -58,7 +58,6 @@ usr -> local -> Cellar -> tomcat -> 9.0.45 > `libexec` "Open" 클릭
 
 <br><br>
 
- 
 
 ## 5. 톰캣 설정 확인 및 Fix 클릭
 
@@ -75,8 +74,27 @@ usr -> local -> Cellar -> tomcat -> 9.0.45 > `libexec` "Open" 클릭
 <br><br>
 
 
+## 6. 서버 구동
+
+[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_08.png)]()<br>
+[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_09.png)]()
+
+
+<br><br>
+
+
+## 10. 로컬 서버 구동 확인
+
+[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_10.png)]()
+
+-  localhost:8080 접속
+
+
+<br><br>
+
 ---
 
 [참고]
 - https://goddaehee.tistory.com/247
+- https://whitepaek.tistory.com/13
 
