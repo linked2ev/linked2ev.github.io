@@ -29,7 +29,7 @@ brew search tomcat
 
 ## 2. tomcat 설치
 
-tomcat 버젼이 나온다. tomcat9가 최신 버젼이니 설치를 진행 해준다.
+tomcat 버젼이 나온다. tomcat9로 설치를 진행 해준다.
 
 ```
 brew install tomcat@9

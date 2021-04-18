@@ -76,8 +76,8 @@ usr -> local -> Cellar -> tomcat -> 9.0.45 > `libexec` "Open" 클릭
 
 ## 6. 서버 구동
 
-[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_08.png)]()<br>
-[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_09.png)]()
+[![tomcat_web_intellij_08](/assets/img/2021/tomcat_web_intellij_08.png)]()<br>
+[![tomcat_web_intellij_09](/assets/img/2021/tomcat_web_intellij_09.png)]()
 
 
 <br><br>
@@ -85,12 +85,41 @@ usr -> local -> Cellar -> tomcat -> 9.0.45 > `libexec` "Open" 클릭
 
 ## 10. 로컬 서버 구동 확인
 
-[![tomcat_web_intellij_07](/assets/img/2021/tomcat_web_intellij_10.png)]()
+[![tomcat_web_intellij_10](/assets/img/2021/tomcat_web_intellij_10.png)]()
 
 -  localhost:8080 접속
 
 
 <br><br>
+
+
+## 11. 서버 구동 시 Artifact 오류 발생시
+
+
+> console error log
+
+```
+Artifact demo_jsp:war exploded: Artifact is being deployed, please wait..
+```
+
+<br>
+
+## 11-1. Artifats 설정
+
+SpringMVC 프로젝트를 생성 후에 artifact에 라이브러리가 추가 설정  
+상단 메뉴 File > Project Structure 클릭
+
+<br>
+
+아래에 Fix 클릭 후에 Add all missing dependence... 클릭
+
+<br>
+
+[![tomcat_web_intellij_11](/assets/img/2021/tomcat_web_intellij_11.png)]()
+
+
+<br><br>
+
 
 ---
 
