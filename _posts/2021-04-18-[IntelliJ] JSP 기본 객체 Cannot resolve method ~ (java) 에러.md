@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[IntelliJ] JSP 기본 객체 "Cannot resolve method ~ (java)" 에러"
+title:  "[IntelliJ] JSP 기본 객체 Cannot resolve method ~ (java) 에러"
 subtitle:   "[IntelliJ]"
 categories: devsub
 tags: intellij
