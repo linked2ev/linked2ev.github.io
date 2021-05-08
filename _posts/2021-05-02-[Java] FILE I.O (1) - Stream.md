@@ -136,6 +136,7 @@ bis.read();
 바이트기반 보조스트림 | 문자기반 보조스트림
 --- | ---
 BuffererdInputStream<br>BuffererdOutputStream | BuffererdReader<br>BuffererdWriter
+FilterInputStream<br>FilterOutputStream | FilterReader<br>FilterWriter
 
 <br><br>
 
