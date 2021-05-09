@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "[Java] FILE 입출력(I.O) (3) - Character Stream(문자열기반 스트림)"
+title:  "[Java] FILE (3) 입출력(Reader/Writer) - Character Stream(문자열기반 스트림)"
 subtitle:   "[Java]"
 categories: java
-tags: java-devhistory
+tags: java-ch-file
 comments: true
 ---
 
-문자열 기반 스트림, 문자열 보조 스트림과 FILE 입출력(I/O)에 대해 정리 (3)
+문자열 기반 스트림, 문자열 보조 스트림과 FILE 입출력(Reader/Writer)에 대해 정리 (3)
 
 <br>
 
@@ -21,7 +21,7 @@ comments: true
 
 # 1-1 Reader와 Writer
 
-Reader와 Writer는 모든 문자기반의 스트림의 조상이먀, Reader/Writer 메서드는 byte 배열이 아닌 char 배열을 사용한다.  
+Reader와 Writer는 모든 문자기반의 스트림의 조상이며, Reader/Writer 메서드는 byte 배열이 아닌 char 배열을 사용한다.  
 문자 기반 스트림이 단순히 2byte로 스트림을 처리한다는 것만을 의미하지 않으며, Reader/Writer는 여러 종류 인코딩과 자바에서 사용하는 유니코드간의 변환을 자동으로 처리해준다.
 
 <br>

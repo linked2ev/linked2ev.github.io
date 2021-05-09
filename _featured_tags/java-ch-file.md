@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Java 개념
-slug: java-sub
+title: Java File I/O
+slug: java-ch-file
 category: java
 menu: false
-order: 1
+order: 2
 ---

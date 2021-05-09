@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "[Java] 바이너리(Binary) 파일과 텍스트(Text) 파일 포스팅"
+title:  "[Java] FILE - 바이너리(Binary) 파일과 텍스트(Text) 파일 포스팅"
 subtitle:   "[Java]"
 categories: java
-tags: java-devhistory
+tags: java-ch-file
 comments: true
 ---
  

@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "[Java] FILE 입출력(I.O) (1) - Stream(스트림)"
+title:  "[Java] FILE (1) 입출력 - Stream(스트림)"
 subtitle:   "[Java]"
 categories: java
-tags: java-devhistory
+tags: java-ch-file
 comments: true
 ---
 
