@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "[Java] FILE (4) 객체와 Stream 정리"
+title:  "[Java] FILE (4) Stream 정리"
 subtitle:   "[Java]"
 categories: java
 tags: java-ch-file
 comments: true
 ---
 
-FILE 객체와 스트림에 대한 정리 (4)
+스트림에 대한 정리 (4)
 
 <br>
 
@@ -104,4 +104,3 @@ FilterInputStream과 FilterOutputStream은 `InputStream/OutputStream의 자손�
 <br><br>
 
 
-# 2 File(파일) 객체
