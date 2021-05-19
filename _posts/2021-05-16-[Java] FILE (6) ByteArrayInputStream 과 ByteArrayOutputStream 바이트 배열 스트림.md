@@ -32,6 +32,39 @@ byte[]의 경우 금방쓰고 버리고 하는 사용 빈도수가 높기때문�
 <br>
 
 
+## ByteArrayInputStream / ByteArrayOutputStream 예제
+
+```java
+/**
+* ByteArrayInputStream / ByteArrayOutputStream
+* - byte배열을 이용해서 한 번에 배열의 크기만큼 읽고 쓸 수 있다.
+* - 만약 스트림의 크기를 정확히 모를 때는 일정한 크기의 바이트를 계속해서 받아서 써야한다.
+*/
+public static void exampleByteArrayStream () {
+	byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
+	byte[] outSrc = null;
+
+	byte[] temp = new byte[10];
+
+	ByteArrayInputStream input = null;
+	ByteArrayOutputStream output = null;
+
+	input = new ByteArrayInputStream(inSrc);
+	output = new ByteArrayOutputStream();
+
+	input.read(temp, 0, temp.length);   // 읽어 온 데이터를 temp에 담는다.
+	output.write(temp, 5, 5);      // temp[5]부터 5개의 데이터를 write한다.
+
+	outSrc = output.toByteArray();
+
+	System.out.println("Input Source: " + Arrays.toString(inSrc));
+	System.out.println("temp Source: " + Arrays.toString(temp));
+	System.out.println("output Source: " + Arrays.toString(outSrc));
+}
+```
+<br><br>
+
+
 ## ByteArrayOutputStream 이용한 File 데이터 반환
 
 <br>
@@ -83,6 +116,6 @@ public static void readFileBaosToData (Map<String, Object> fileMap, String fileP
 
 <br><br>
 
-작성중 .. 다른거 하는중.
+
 
 ---
