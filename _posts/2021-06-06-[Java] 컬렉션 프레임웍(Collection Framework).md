@@ -59,7 +59,7 @@ boolean contains(Object o) | 지정된 객체(o) 또는 Collection의 객체들�
 boolean equals(Object o) | 동일한 Collection 인지 비교한다.
 int hashCode() | Collection의 hash code를 반환한다.
 boolean isEmpty() | Collection이 비어있는지 확인한다.
-Iterator iterator() | Collection의 Iterator을 얻어서 반환한다.
+`Iterator iterator()` | Collection의 Iterator을 얻어서 반환한다.
 boolean remove(Object o) | 지정된 객체를 삭제한다.
 boolean removeAll(Collection c) | 지정된 Collection에 포함된 객체들을 삭제한다.
 boolean retainAll(Collection c) | 지정된 Collection에 포함된 객체만을 남기고 다른 객체들은 Collection에서 삭제하며, true/false를 반환한다.
@@ -80,6 +80,8 @@ Object[] toArray(Object[] a) | 지정된 배열에 Collection의 객체를 저�
 
 ## 2-1. List 구조
 ---
+
+<br>
 
 [![collection_s03](/assets/img/2021/collection_s03.png)]()
 
@@ -105,6 +107,8 @@ Object[] toArray(Object[] a) | 지정된 배열에 Collection의 객체를 저�
 
 ## 2-2. List 예제
 ---
+
+<br>
 
 List 인터페이스를 ArrayList 클래스로 구현한 예제이다.
 
@@ -196,6 +200,8 @@ Set에서 요소들이 저장될 때 저장할 `요소의 값의 hash 값을 구
 ## 3-1. Set 구조
 ---
 
+<br>
+
 [![collection_s04](/assets/img/2021/collection_s05.png)]()
 
 <br>
@@ -205,11 +211,12 @@ Set에서 요소들이 저장될 때 저장할 `요소의 값의 hash 값을 구
 <br><br>
 
 
-## 3-2. Set 예제
+## 3-2-1. Set 예제
 ---
 
+<br>
+
 Set 인터페이스를 HashSet 클래스로 구현한 예제이다. 같은 요소(데이터)를 중복을 원치 않을 경우에 사용한다.
-Set컬렉션의 경우에는 저장 순서가 유지되지 않으며. 인덱스로 객체를 검색하지 않기에 객체 전체를 한 번씩 반복해서 가져오는 반복자(Iterator)를 통해 데이터를 가져온다.
 
 <br>
 
@@ -285,7 +292,10 @@ public class SetExample {
 <br><br>
 
 
-## 3-4. Set 집합 예제
+## 3-2-2. Set 집합 예제
+---
+
+<br>
 
 ```java
 public static void main(String[] args) {
@@ -369,50 +379,121 @@ A.removeAll(B);
 
 
 ## 3-3. Set 인터페이스의 메서드
-
-메서드 | 설명
----- | ----
-boolean add(E e) | 주어진 객체를 저장 후 성공적이면 true를 중복 객체면 false를 리턴
-boolean contains(Object o) | 주어진 객체가 저장되어있는지 여부를 리턴
-Iterator<E> iterator() | 저장된 객체를 한번씩 가져오는 반복자를 리턴
-isEmpty() | 컬렉션이 비어있는지 확인
-int Size() | 저장되어 있는 전체 객체수를 리턴
-void clear() | 저장된 모든 객체를 삭제
-boolean remove(Object o) | 주어진 객체를 삭제
-
-<br><br>
- 
-
 ---
 
-# `정리 및 작성중...` 
+<br>
 
-<br><br><br><br><br><br>
+`Set 인터페이스에는 따로 메서드가 없으며, Collection 인터페이스 API와 동일`하다. 
+Set컬렉션의 경우에는 저장 순서가 유지되지 않는다. `인덱스 개념이 없기 때문에 List 인터페이스처럼 따로 정의되어 있는 get(int Index) 메서드 등 API가 없기 때문에 Collection 인터페이스에 정의되어 있는 Iterator를 통해서 데이터에 접근해서 가져`온다.
+
+\- `Iterator iterator()` : Collection의 Iterator을 얻어서 반환한다.
+
+<br><br>
 
 
-
-# 1.1.4. Map 인터페이스
+# 3. Map 인터페이스
 
 Map 인터페이스는 키(Key)와 값(Value)을 하나의 쌍인 데이터 구조를 가진 컬렉션 클래스 구현하는데 사용된다.
 
+요소의 저장 순서를 유지하지 않습니다. 키는 중복을 허용하지 않지만, 값의 중복은 허용하며 대표적인 Map 컬렉션 클래스에 속하는 클래스는 다음과 같습니다. HashMap, Hashtable, LinkedHashMap, TreeMap 등이 있다.
+
+<br><br>
+
+
+## 3-1. Map의 구조
+---
+
 <br>
 
-## Map 인터페이스를 구현한 모든 Map 컬렉션 클래스는 다음과 같은 특징
+[![collection_s06](/assets/img/2021/collection_s06.png)]()
 
-1. 요소의 저장 순서를 유지하지 않습니다.
-2. 키는 중복을 허용하지 않지만, 값의 중복은 허용합니다. 
+
+예를 굳이 들자면 한 회사에 사번\<key>은 고유하지만 이름\<value>은 동명이인 있을 수 있다. 또한 사번은 고유하기 때문에 이름을 가져올 수 있다.
+
+<br><br>
+
+
+## 3-2. Map 예제
+---
 
 <br>
 
-## 대표적인 Map 컬렉션 클래스에 속하는 클래스는 다음과 같습니다.
+HashMap 클래스는 Map 컬렉션 클래스를 구현하는 클래스 중 하나이다. JDK 1.2부터 제공된 HashMap 클래스는 해시 알고리즘을 사용하여 검색 속도가 빠르다.
 
-1. HashMap<K, V>
-2. Hashtable<K, V>
-3. LinkedHashMap<K, V>
-4. TreeMap<K, V>
+Map 자체에는 Iterator가 없기에 Map의 entrySet() 이용해 Map.Entry의 데이터 타입으로 변경해서 전체 데이터를 반복해서 데이터를 접근한다.
+
+<br>
+
+```java
+package collection.list;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class MapExample {
+
+    public static void main(String[] args) {
+        HashMap<String, Object> employee = new HashMap<String, Object>();
+        employee.put("EMP121", "김준영");
+        employee.put("EMP122", "김욱");
+        employee.put("EMP305", "박재현");
+        employee.put("EMP311", "이유리");
+        employee.put("EMP314", "정연호");
+        employee.put("EMP545", "김욱");
 
 
-## Map 인터페이스의 메서드
+        System.out.println(employee.get("EMP121"));
+        System.out.println(employee.get("EMP122"));
+        System.out.println(employee.get("EMP314"));
+        System.out.println(employee.get("EMP545"));
+
+
+        iteratorUsingForEach(employee);
+        //iteratorUsingIterator(employee);
+    }
+
+    static void iteratorUsingForEach(HashMap map){
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        for (Map.Entry<String, Integer> entry : entries) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+
+    static void iteratorUsingIterator(HashMap map){
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        Iterator<Map.Entry<String, Integer>> i = entries.iterator();
+        while(i.hasNext()){
+            Map.Entry<String, Integer> entry = i.next();
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+    }
+}
+```
+
+> console
+
+```
+김준영
+김욱
+정연호
+김욱
+EMP305 : 박재현
+EMP121 : 김준영
+EMP122 : 김욱
+EMP311 : 이유리
+EMP314 : 정연호
+EMP545 : 김욱
+```
+
+<br><br>
+
+
+## 3-3. Map 인터페이스의 메서드
+---
+
+<br>
 
 메서드 | 설명
 ---- | ----
@@ -431,7 +512,7 @@ Object remove(Object key) | 지정한 key객체와 일치하는 key-value객체�
 int size() | Map에 저장된 key-value쌍의 개수를 반환한다.
 Collection values() | Map에 저장된 모든 value객체를 반환한다.
 
-
+<br><br>
 
 ---
 [참고]

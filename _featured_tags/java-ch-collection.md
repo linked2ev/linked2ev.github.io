@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Java Collection Framework
+title: Java Collection
 slug: java-ch-collection
 category: java
 menu: false
