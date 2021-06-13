@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "[MySQLWorkbench] Access denied for user 'root'@'localhost'"
+title:  "[MySQLWorkbench] Please: Check that MySQL is running on address 127.0.0.1"
 subtitle:   "[DB]"
 categories: database
 tags: dbtool-sub
 comments: true
 ---
 
-맥북에 MariaDB 설치 다시 설치하다 생긴 이슈이다. MariaDB 10.5 이상부터 변경 된거 같다. MySQLWorkbench 로 접속시 에러 이슈
+...  
+2 Check that MySQL is reachable on port 3306 (note: 3306 is the default, but this can be changed)  
+3 Check the user root has rights to connect to 127.0.0.1 from your address (...
 
 <br><br>
 
