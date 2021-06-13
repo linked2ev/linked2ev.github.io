@@ -14,7 +14,7 @@ comments: true
 
 # `에러`
  
-root 계정, 일반계정으로 mysql 접속에 접속을 못한는 경우이다.
+root 계정, 일반계정으로 mysql 접속을 못한는 경우이다.
 
 ```
 linked2ev@linked2ev-MacBook-Pro etc % mysql -uroot      
