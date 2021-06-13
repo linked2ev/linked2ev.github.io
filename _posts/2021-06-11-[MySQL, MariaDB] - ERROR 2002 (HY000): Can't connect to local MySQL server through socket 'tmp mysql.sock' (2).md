@@ -1,17 +1,33 @@
 ---
 layout: post
-title:  "[MariaDB] 3. MariaDB 설치 for Mac"
-subtitle:   "[MySQL]"
+title:  "[MySQL/MariaDB] - ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)"
+subtitle:   "[DB]"
 categories: database
-tags: mysql
+tags: dbtool-sub
 comments: true
 ---
 
-
-맥북 기준으로 MariaDB 설치 포스팅
-
+갑자기 이유없이 에러가 난 상황이다. 시간만.. 날렸다.
 
 <br><br>
+
+# `에러`
+
+```
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+```
+
+<br>
+
+# `원인`
+
+실질적인 설정 문제 일 수도 있으나, 설정 없이 갑자기 안되는 경우에는 Mac 업데이트로 인한 my.cnf 손상이나 mysql 실행 도중 손상되서 mysql.sock 문제가 발생 한 이유이다.
+
+이럴 경우에는 data 백업 한 후에 재 설치해야 한다.
+
+<br>
+
+# `해결`
 
 # MySQL/MariaDB 삭제
 
@@ -80,13 +96,9 @@ brew services start mariadb
 # 3. MariaDB 접속
 
 ```
-sudo mysql -u root -p
+mysql -u root -p
 ```
 
 
-<br><br>
+<br>
 
-
----
-[참고]  
-- https://mariadb.com/kb/ko/installing-mariadb-on-macos-using-homebrew/
