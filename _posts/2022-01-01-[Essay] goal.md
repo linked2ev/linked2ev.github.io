@@ -7,6 +7,6 @@ tags: essay
 comments: true
 ---
 
-## 22년은 수확
+## 수확
 
 ---
