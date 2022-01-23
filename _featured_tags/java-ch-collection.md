@@ -4,5 +4,5 @@ title: Java Collection
 slug: java-ch-collection
 category: java
 menu: false
-order: 2
+order: 5
 ---
