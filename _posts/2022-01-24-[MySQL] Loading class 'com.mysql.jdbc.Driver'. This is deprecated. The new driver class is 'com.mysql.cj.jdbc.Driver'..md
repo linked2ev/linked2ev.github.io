@@ -19,7 +19,7 @@ Loading class `com.mysql.jdbc.Driver'. This is deprecated.
 <br><br>
 
 
-# 오류
+# 에러
 
 ```
 Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
