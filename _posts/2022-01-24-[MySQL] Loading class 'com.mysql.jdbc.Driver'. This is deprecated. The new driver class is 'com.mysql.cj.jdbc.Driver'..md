@@ -2,8 +2,8 @@
 layout: post
 title:  "[MySQL] Loading class 'com.mysql.jdbc.Driver'. This is deprecated. The new driver class is 'com.mysql.cj.jdbc.Driver'."
 subtitle:   "[Java]"
-categories: java
-tags: java-devhistory
+categories: spring
+tags: spring-devhistory
 comments: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[WEB] MCI, EAI, ESB 미들웨워"
+title:  "[WEB] MCI, EAI, ESB 미들웨어"
 subtitle:   "[WEB]"
 categories: devlog
 tags: web
