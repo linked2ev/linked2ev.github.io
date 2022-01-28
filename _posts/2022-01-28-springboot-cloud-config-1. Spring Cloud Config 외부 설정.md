@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "1. Spring Cloud Config Server 설정"
+title:  "1. Spring Cloud Config Server"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-cloudconfig
@@ -81,4 +81,4 @@ github(외부)에 본 포스팅에서는 "neo-spring-cloud-config"명으로 repo
 <br><br>
 
 
-이어서 설정파일을 불러와서 배포하는 역할을 하는 Config Server에 대한 포스팅이다.
+다음은 설정파일을 불러와서 배포하는 역할을 하는 Config Server에 대한 포스팅이다.
