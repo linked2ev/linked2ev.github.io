@@ -115,3 +115,49 @@ spring:
           #password: private 경우
 ```
 
+<br><br>
+
+
+# 4. Cloud Config 확인
+
+방금 만든 Spring Cloud Config Server 프로젝트를 실행 한 다음에 
+http://localhost:8888/cloud-config/local 로 접근하면 아래와 같이 설정파일 내용이 json 형태로 출력된다.
+
+
+```json
+{
+   "name":"cloud-config",
+   "profiles":[
+      "local"
+   ],
+   "label":null,
+   "version":"1c008a86f383bd4cb76179052648ccc87cd7f3fd",
+   "state":null,
+   "propertySources":[
+      {
+         "name":"https://github.com/linked2ev/neo-spring-cloud-config/application-local.yml",
+         "source":{
+            "server.port":8080,
+            "spring.config.activate.on-profile":"local",
+            "spring.datasource.hikari.connection-test-query":"SELECT 1",
+            "spring.datasource.hikari.allow-pool-suspesion":true,
+            "spring.datasource.hikari.driver-class-name":"net.sf.log4jdbc.sql.jdbcapi.DriverSpy",
+            "spring.datasource.hikari.jdbc-url":"jdbc:log4jdbc:mysql://localhost:3306/demo_neo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC",
+            "spring.datasource.hikari.username":"root",
+            "spring.datasource.hikari.password":1111,
+            "spring.thymeleaf.cache":false,
+            "spring.resources.cache.period":0,
+            "spring.jpa.database":"mysql",
+            "spring.jpa.database-platform":"org.hibernate.dialect.MySQL5InnoDBDialect",
+            "spring.jpa.generate-ddl":true,
+            "spring.jpa.hibernate.use-new-id-generator-mappings":false,
+            "mybatis.configuration.map-underscore-to-camel-case":true
+         }
+      }
+   ]
+}
+```
+
+<br><br>
+
+이상 끝. 이어서.
