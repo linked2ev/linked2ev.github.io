@@ -1,18 +1,22 @@
 ---
 layout: post
-title:  "2. Spring Cloud Config Server 생성"
+title:  "2. Spring Cloud Config Server 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-cloudconfig
 comments: true
 ---
 
-Cloud Config 설정파일을 불러와서 배포하는 역할을 하는 Spring Cloud Config Server 생성에 대한 포스팅이다.
+`Spring Cloud Config Server`는 Cloud Config 설정파일을 불러와서 배포하는 역할을 한다.
 
 <br><br>
 
 
 # 1. Spring Cloud Config Server란?
+
+[![ccc-s2](/assets/img/2022/ccc-s2.png)]() <br>
+
+<br>
 
 Cloud Config 설정파일을 불러와서 배포하는 역할이다.  
 Springboot에서 Cloud Config 모듈을 새로 만들자
@@ -56,7 +60,13 @@ public class ConfigServerApplication {
 
 > build.gradle
 
+```js
+implementation 'org.springframework.cloud:spring-cloud-config-server'
+```
+
 spring-cloud-config-server 의존성 주입
+
+<br>
 
 ```js
 plugins {
@@ -118,9 +128,19 @@ spring:
 <br><br>
 
 
-# 4. Cloud Config 확인
+# 4. Spring Cloud Config Server 구동
 
-방금 만든 Spring Cloud Config Server 프로젝트를 실행 한 다음에 
+아래와 같이 서버 구동 시에 Config 자원을 가져와서 설정하는 로그가 올라온다.
+
+```
+o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/jt/xt8g5__92ms_k5xlf0w4l50r0000gn/T/config-repo-6373310396527221640/application-local.yml]' via location 'file:/var/folders/jt/xt8g5__92ms_k5xlf0w4l50r0000gn/T/config-repo-6373310396527221640/'
+```
+
+<br><br>
+
+# 5. Cloud Config 확인
+
+방금 만든 Spring Cloud Config Server 프로젝트를 실행 한 다음에  
 http://localhost:8888/cloud-config/local 로 접근하면 아래와 같이 설정파일 내용이 json 형태로 출력된다.
 
 

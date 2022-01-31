@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "1. Spring Cloud Config Server"
+title:  "1. Spring Cloud Config 외부 설정"
 subtitle:   "[springboot]"
 categories: gitlog
 tags: springboot-cloudconfig
@@ -13,6 +13,10 @@ comments: true
 
 
 # 1. Spring Cloud Config란?
+
+[![ccc-s1](/assets/img/2022/ccc-s1.png)]() <br>
+
+<br>
 
 분산된 환경에서 설정 파일을 외부로 분리해서 Config Server를 통해 전달하는 구조이다. 개발/테스트/운영 환경에서 모든 환경 구성을 간편하게 관리할 수 있다.
 
