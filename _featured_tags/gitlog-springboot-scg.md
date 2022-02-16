@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: springboot-gcp
-slug: springboot-gcp
+title: springboot-scg
+slug: springboot-scg
 category: gitlog
 menu: false
-order: 7
+order: 6
 ---
