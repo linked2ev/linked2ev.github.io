@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "[Java] 3. Checked Exception와 Unchecked Exception"
+subtitle:   "[Java]"
+categories: java
+tags: java-ch-mid
+comments: true
+---
+
+Checked Exception(일반예외)와 Unchecked Exception(실행예외) 개념에 대한 포스팅이다.
+
+<br><br>
+
+
+# 1. Checked Exception와 Unchecked Exception
+
+[![exception_class-s1](/assets/img/2022/exception_class.png)]()
+
+위에 계층 구조와 같이 Throwable 클래스 밑으로 Error와 Exception 계층 구조를 이루고 있다.
+
+Exception 에서 RuntimeException은 `Unchecked Exception`이고, RuntimeException을 제외한 다른 예외클래스들은 `Checked Exception`으로 분류된다.
+
+RuntimeException의 자식 클래스들 모두 포함, Unchecked Exception이다. try-catch문으로 예외 처리를 직접 하기보다는 예외가 발생하지 않도록 프로그래머가 주의해야 한다.
+
+<br><br>
+
+- | Checked Exception | Unchecked Exception
+ ---- | ---- | ----
+ 구분 | 컴파일러가 예외 처리 여부를 체크 | 예외 체크를 안함
+ 예외처리 | 예외 처리 `필수(강제)` | 예외 처리 `선택(프로그래머)`
+ 클래스 | Exception 하위 클래스에서 RuntimeException 제외 클래스 | RuntimeException 하위 클래스
+ 대표 클랠스 | IOException, ClassNotFoundException | ArithmeticException, ClassCasException, NullPointerException
