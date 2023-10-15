@@ -118,11 +118,8 @@
 
 <script data-ad-client="ca-pub-8036077403197246" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.4.0{% endcapture %}
+<!-- hydejack CSS overwrite 제거 {% capture style_url %}{% link assets/css/hydejack.css %}?v=6.4.0{% endcapture %} -->
 <link rel="preload" href="{{ style_url | absolute_url }}" as="style" onload="this.rel='stylesheet'">
-
-<link href="/assets/css/base16.monokai.dark.css" rel="stylesheet" />
-
 
 {% include page-style.html %}
 
