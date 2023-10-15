@@ -89,7 +89,7 @@
 }
 
 .markdown-body code {
-  color: #E53A40;
+  /* color: #E53A40; */
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -161,7 +161,7 @@
   padding: 3px 5px;
   font-size: 11px;
   line-height: 10px;
-  color: #555;
+  /* color: #555; */
   vertical-align: middle;
   /* background-color: #fcfcfc; */
   border: solid 1px #ccc;
