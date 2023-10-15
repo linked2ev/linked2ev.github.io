@@ -15,7 +15,7 @@ comments: true
 
 > 1_type-basic.ts
  
-```ts
+```js
 // boolean
 let isLogin: boolean = false;
 console.log("> isLogin = ", isLogin);
