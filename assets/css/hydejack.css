@@ -175,7 +175,7 @@
   padding: 3px 5px;
   font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
   line-height: 10px;
-  color: #555;
+  /* color: #555; */
   vertical-align: middle;
   /* background-color: #fcfcfc; */
   border: solid 1px #ccc;
