@@ -116,7 +116,7 @@
   border: 0;
 }
 
-.markdown-body .highlight {
+/* .markdown-body .highlight {
   margin-bottom: 16px;
 }
 
@@ -133,7 +133,7 @@
 .markdown-body .highlight pre {
   margin-bottom: 0;
   word-break: normal;
-}
+} */
 
 .markdown-body pre {
   word-wrap: normal;
