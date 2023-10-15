@@ -126,7 +126,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
   border-radius: 3px;
 }
 
@@ -163,7 +163,7 @@
   line-height: 10px;
   color: #555;
   vertical-align: middle;
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
   border: solid 1px #ccc;
   border-bottom-color: #bbb;
   border-radius: 3px;
@@ -177,7 +177,7 @@
   line-height: 10px;
   color: #555;
   vertical-align: middle;
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
   border: solid 1px #ccc;
   border-bottom-color: #bbb;
   border-radius: 3px;
