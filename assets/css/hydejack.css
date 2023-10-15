@@ -210,7 +210,7 @@
 }
 
 .folder:hover {
-  background: #000;
+  /* background: #000; */
   opacity: 0.1;
 }
 
