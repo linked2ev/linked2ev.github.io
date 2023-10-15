@@ -77,6 +77,12 @@
 
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.feed.path | default:'feed.xml' | absolute_url }}">
 
+<!-- 2023.10.15 코드블럭 하이라이팅 -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/atom-one-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- 2023.10.15 코드블럭 하이라이팅 -->
+
 {% if page.previous %}
   <link rel="prev" href="{{ page.previous.url | absolute_url }}">
 {% endif %}
@@ -116,12 +122,6 @@
 </style>
 
 <script data-ad-client="ca-pub-8036077403197246" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<!-- 2023.10.15 코드블럭 테마 하이라이팅 -->
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/atom-one-dark.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
-<!-- 2023.10.15 코드블럭 테마 하이라이팅 -->
 
 {% capture style_url %}{% link assets/css/hydejack.css %}?v=6.4.0{% endcapture %}
 <link rel="preload" href="{{ style_url | absolute_url }}" as="style" onload="this.rel='stylesheet'">
