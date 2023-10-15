@@ -130,10 +130,10 @@ sass:
 
 # Conversion
 markdown: kramdown
+highlighter: rouge
+# Markdown Processing
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-#highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
