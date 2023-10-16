@@ -36,7 +36,7 @@ const name = 'Capt' as string;
 
 <br>
 
-# ## 타입 단언 예제
+## 타입 단언 예제
 
 ```js
 interface Hero {
