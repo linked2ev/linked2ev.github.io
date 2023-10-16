@@ -112,6 +112,44 @@ let t2: Bus = new Subway(150, 2);
 console.log(t2.capacity);
 ```
 
+<br>
+
+## Union, Intersection 타입 호환
+
+```js
+interface TV {
+  name: String
+  price: Number
+}
+
+interface Manufacturer {
+  name : String
+  country: String
+}
+
+//Union Type ('|')을 통해 교집합 속성
+function setUnionTv(item: TV | Manufacturer) {
+  //TV, Manufacturer 인터페이스의 공통속성인 name만 지원하고 있다.
+  item.name
+  //item.price//error
+  //item.country//error
+}
+
+//Intersection Type ('&')을 통합 합집합 속성
+function setIntersectionTv(item: TV & Manufacturer) {
+  //TV, Manufacturer 인터페이스의 공통속성인 name만 지원하고 있다.
+  item.name
+  item.price
+  item.country
+}
+
+setIntersectionTv({
+  name: '삼성GLED-TV',
+  price: 1000000000,
+  country: 'KOREA'
+})
+```
+
 <br><br>
 
 
