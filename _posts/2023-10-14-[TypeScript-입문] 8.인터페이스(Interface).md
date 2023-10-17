@@ -95,5 +95,3 @@ class Employee implements Person, Programmer {
 ---
 [참고]
 - 타입스크립트 핸드북 : https://joshua1988.github.io/ts/intro.html
-- https://joshua1988.github.io/vue-camp/es6+/modules.html#모듈화의-필요성
-- https://d2.naver.com/helloworld/12864
