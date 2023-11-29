@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Java] Stream Map 연산 기록"
+title:  "[Java] Stream Map 연산"
 subtitle:   "[Java]"
 categories: java
 tags: java-devhistory
