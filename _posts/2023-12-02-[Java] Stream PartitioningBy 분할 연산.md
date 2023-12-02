@@ -120,7 +120,7 @@ System.out.println("- DepWdrTypCd(20) By AccAmt Max : " + partitioningByMax.get(
 ```
 # partitioningBy BigDecimal Max
 - DepWdrTypCd(10) By AccAmt Max : Optional[AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}]
-- DepWdrTypCd(20) By AccAmt Max : Optional[AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
+- DepWdrTypCd(20) By AccAmt Max : Optional[AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}]
 ```
 
 <br>

@@ -22,25 +22,33 @@ Collector groupingBy(Function classifier, Supplier mapFactory, Collector downstr
 <br>
 
 ```java
-List<AccSubItem> AccSubItems = Arrays.asList(
-        new AccSubItem("A123", "10", new BigDecimal(100000)),
-        new AccSubItem("A201", "10", new BigDecimal(120000)),
-        new AccSubItem("A222", "20", new BigDecimal(1000)),
-        new AccSubItem("A510", "10", new BigDecimal(27000)),
-        new AccSubItem("A610", "20", new BigDecimal(431000)),
-        new AccSubItem("A105", "10", new BigDecimal(12346))
+List<AccSubItem2> accSubItems = Arrays.asList(
+        new AccSubItem2("A123", "10", new BigDecimal(11000), 700),
+        new AccSubItem2("A123", "10", new BigDecimal(4000), 120),
+        new AccSubItem2("A123", "20", new BigDecimal(103000), 670),
+        new AccSubItem2("A201", "10", new BigDecimal(128000), 320),
+        new AccSubItem2("A222", "20", new BigDecimal(100000), 900),
+        new AccSubItem2("A510", "10", new BigDecimal(21000), 820),
+        new AccSubItem2("A510", "10", new BigDecimal(37000), 790),
+        new AccSubItem2("A510", "10", new BigDecimal(432000), 240),
+        new AccSubItem2("A610", "20", new BigDecimal(431000), 510),
+        new AccSubItem2("A105", "10", new BigDecimal(12346), 880)
 );
 ```
 
+<br>
+
+> groupingBy 기본 예제
+
 ```java
 // DepWdrTypCd 멤버변수 기준으로 groupBy 별 건수
-Map<String, Long> accSubGroupByCnt = AccSubItems.stream()
-        .collect(Collectors.groupingBy(AccSubItem::getDepWdrTypCd, Collectors.counting()));
+Map<String, Long> accSubGroupByCnt = accSubItems.stream()
+        .collect(Collectors.groupingBy(AccSubItem2::getDepWdrTypCd, Collectors.counting()));
 System.out.println("DepWdrTypCd 멤버변수 기준으로 groupBy 별 건수: " + accSubGroupByCnt);
 
 // DepWdrTypCd 멤버변수 기준으로 groupBy 별로 객체 List
-Map<String, List<AccSubItem>> accSubGroupByMap = AccSubItems.stream()
-                                                        .collect(Collectors.groupingBy(AccSubItem::getDepWdrTypCd));
+Map<String, List<AccSubItem2>> accSubGroupByMap = accSubItems.stream()
+                                                        .collect(Collectors.groupingBy(AccSubItem2::getDepWdrTypCd));
 accSubGroupByMap.get("10").forEach(accSubItem -> {
     System.out.println("[10]" + accSubItem.toString());
 });
@@ -50,11 +58,128 @@ accSubGroupByMap.get("20").forEach(accSubItem -> {
 ```
 
 ```
-DepWdrTypCd 멤버변수 기준으로 groupBy 별 건수: {20=2, 10=4}
-[10]AccSubItem{accId='A123', depWdrTypCd='10', accAmt=100000}
-[10]AccSubItem{accId='A201', depWdrTypCd='10', accAmt=120000}
-[10]AccSubItem{accId='A510', depWdrTypCd='10', accAmt=27000}
-[10]AccSubItem{accId='A105', depWdrTypCd='10', accAmt=12346}
-[20]AccSubItem{accId='A222', depWdrTypCd='20', accAmt=1000}
-[20]AccSubItem{accId='A610', depWdrTypCd='20', accAmt=431000}
+DepWdrTypCd 멤버변수 기준으로 groupBy 별 건수: {20=3, 10=7}
+[10]AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=11000, score=700}
+[10]AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=4000, score=120}
+[10]AccSubItem2{accId='A201', depWdrTypCd='10', accAmt=128000, score=320}
+[10]AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=21000, score=820}
+[10]AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=37000, score=790}
+[10]AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}
+[10]AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
+[20]AccSubItem2{accId='A123', depWdrTypCd='20', accAmt=103000, score=670}
+[20]AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
+[20]AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
 ```
+
+<br>
+
+
+> groupingBy n분할 일반적인 그룹화
+
+그룹화 된 그룹명이 정렬 되지 않은 상태이다.
+
+```java
+// n분할 그룹화
+Map<String, List<AccSubItem2>> gradeGroupBy = accSubItems.stream()
+        .collect(Collectors.groupingBy(
+                accSubItem -> {
+                    if (accSubItem.getScore() >= 900) return "A 등급";
+                    else if (accSubItem.getScore() >= 800) return "B 등급";
+                    else if (accSubItem.getScore() >= 700) return "C 등급";
+                    else return "D 등급";
+                }
+        ));
+
+System.out.println("========== 일반적인 n분할 그룹화 ==========");
+gradeGroupBy.forEach((key, accSubItem) -> {
+    System.out.println("[" + key + "]");
+    accSubItem.forEach(System.out::println);
+});
+```
+
+```
+========== 일반적인 n분할 그룹화 ==========
+[C 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=11000, score=700}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=37000, score=790}
+[D 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=4000, score=120}
+AccSubItem2{accId='A123', depWdrTypCd='20', accAmt=103000, score=670}
+AccSubItem2{accId='A201', depWdrTypCd='10', accAmt=128000, score=320}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}
+AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
+[B 등급]
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=21000, score=820}
+AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
+[A 등급]
+AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
+```
+
+<br>
+
+
+> groupingBy n분할 정렬/역정렬 그룹화
+
+TreeMap 을 활용한 정렬/역정렬 grouping 예제이다.
+
+```java
+TreeMap<String, List<AccSubItem2>> orderGradeGroupBy = accSubItems.stream()
+        .collect(Collectors.groupingBy(
+                accSubItem -> {
+                    if (accSubItem.getScore() >= 900) return "A 등급";
+                    else if (accSubItem.getScore() >= 800) return "B 등급";
+                    else if (accSubItem.getScore() >= 700) return "C 등급";
+                    else return "D 등급";
+                }
+                , TreeMap::new  //A등급, B등급, C등급, D등급
+                , Collectors.toList()
+            )
+        );
+
+System.out.println("========== 정렬 n분할 그룹화 ==========");
+orderGradeGroupBy.forEach((key, accSubItem) -> {
+    System.out.println("[정렬][" + key + "]");
+    accSubItem.forEach(System.out::println);
+});
+
+System.out.println("========== 정렬 역순 n분할 그룹화 ==========");
+orderGradeGroupBy.descendingMap().forEach((key, accSubItem) -> {
+    System.out.println("[정렬 역순][" + key + "]");
+    accSubItem.forEach(System.out::println);
+});
+```
+
+```
+========== 정렬 n분할 그룹화 ==========
+[정렬][A 등급]
+AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
+[정렬][B 등급]
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=21000, score=820}
+AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
+[정렬][C 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=11000, score=700}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=37000, score=790}
+[정렬][D 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=4000, score=120}
+AccSubItem2{accId='A123', depWdrTypCd='20', accAmt=103000, score=670}
+AccSubItem2{accId='A201', depWdrTypCd='10', accAmt=128000, score=320}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}
+AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
+========== 정렬 역순 n분할 그룹화 ==========
+[정렬 역순][D 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=4000, score=120}
+AccSubItem2{accId='A123', depWdrTypCd='20', accAmt=103000, score=670}
+AccSubItem2{accId='A201', depWdrTypCd='10', accAmt=128000, score=320}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}
+AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
+[정렬 역순][C 등급]
+AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=11000, score=700}
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=37000, score=790}
+[정렬 역순][B 등급]
+AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=21000, score=820}
+AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
+[정렬 역순][A 등급]
+AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
+```
+
+
