@@ -182,4 +182,82 @@ AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
 AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
 ```
 
+<br>
 
+
+> groupingBy n분할 통계
+
+```java
+TreeMap<String, Long> orderGradeGroupByCnt = accSubItems.stream()
+        .collect(Collectors.groupingBy(
+                accSubItem -> {
+                    if (accSubItem.getScore() >= 900) return "A 등급";
+                    else if (accSubItem.getScore() >= 800) return "B 등급";
+                    else if (accSubItem.getScore() >= 700) return "C 등급";
+                    else return "D 등급";
+                }
+                , TreeMap::new  //A등급, B등급, C등급, D등급
+                , Collectors.counting()
+            )
+        );
+System.out.println("========== 정렬 n분할 그룹화 통계 ==========");
+orderGradeGroupByCnt.forEach((key, groupCnt) -> {
+    System.out.println("[" + key + "] cnt : "  + groupCnt);
+});
+```
+
+```
+========== 정렬 n분할 그룹화 통계 ==========
+[A 등급] cnt : 1
+[B 등급] cnt : 2
+[C 등급] cnt : 2
+[D 등급] cnt : 5
+```
+
+<br>
+
+> groupingBy 다중 분할(DepWdrTypCd, Score)
+
+```java
+TreeMap<String, Map<String, List<AccSubItem2>>> multiGroupBy = accSubItems.stream()
+        .collect(Collectors.groupingBy(
+                AccSubItem2::getDepWdrTypCd, TreeMap::new, Collectors.groupingBy(
+                        accSubItem -> {
+                            if (accSubItem.getScore() >= 900) return "A 등급";
+                            else if (accSubItem.getScore() >= 800) return "B 등급";
+                            else if (accSubItem.getScore() >= 700) return "C 등급";
+                            else return "D 등급";
+                        }, TreeMap::new, Collectors.toList()
+                )
+        ));
+
+System.out.println("========== 다중 분할(DepWdrTypCd, Score) 그룹화 ==========");
+multiGroupBy.forEach((depWdrKey, scoreGroup) -> {
+    System.out.println("# DepWdrTypCd: " + depWdrKey);
+    scoreGroup.forEach((scoreKey, items) -> {
+        System.out.println("\tScore: " + scoreKey);
+        items.forEach(e-> System.out.println("        - " + e));
+    });
+});
+```
+
+```
+========== 다중 분할(DepWdrTypCd, Score) 그룹화 ==========
+# DepWdrTypCd: 10
+	Score: B 등급
+        - AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=21000, score=820}
+        - AccSubItem2{accId='A105', depWdrTypCd='10', accAmt=12346, score=880}
+	Score: C 등급
+        - AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=11000, score=700}
+        - AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=37000, score=790}
+	Score: D 등급
+        - AccSubItem2{accId='A123', depWdrTypCd='10', accAmt=4000, score=120}
+        - AccSubItem2{accId='A201', depWdrTypCd='10', accAmt=128000, score=320}
+        - AccSubItem2{accId='A510', depWdrTypCd='10', accAmt=432000, score=240}
+# DepWdrTypCd: 20
+	Score: A 등급
+        - AccSubItem2{accId='A222', depWdrTypCd='20', accAmt=100000, score=900}
+	Score: D 등급
+        - AccSubItem2{accId='A123', depWdrTypCd='20', accAmt=103000, score=670}
+        - AccSubItem2{accId='A610', depWdrTypCd='20', accAmt=431000, score=510}
+```
