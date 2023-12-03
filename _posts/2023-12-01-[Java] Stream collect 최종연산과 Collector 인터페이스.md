@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Java] Stream collect 최종연산과 Collector 인터페이스 최종연산"
+title:  "[Java] Stream collect 최종연산과 Collector 인터페이스"
 subtitle:   "[Java]"
 categories: java
 tags: java-devhistory
