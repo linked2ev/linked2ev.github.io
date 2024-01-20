@@ -7,9 +7,9 @@ tags: java-modern-practical
 comments: true
 ---
 
-자바8에서 새로 생긴 default method는 자바에서 인터페이스 사용시 이미 정해진 인터페이스 규격에서 추가로 변경 될 때 마다 구현클래스에서 매번 메서드 기능을 구현해야 되는 문제에서 생긴 것이다. 아래 예제 코드를 보면 초기에 대출실행 인터페이스에서 takeGeneralLoan과 takeCreditLoan 만 정의되어 있다가  
+자바8에서 새로 생긴 default method는 자바에서 인터페이스 사용시 이미 정해진 인터페이스 규격에서 추가로 변경 될 때 마다 구현클래스에서 매번 메서드 기능을 반드시 구현해야 되는 문제에서 생긴 것이다. 
 
-나중에 takeCoronaLoan 가 인터페이스에 추가로 정의가 되면 구현클래스에서는 구현하라고 컴파일 에러가 발생한다. 그것을 방지하기 위해 자바8에서부터 인터페이스에 default method 와 변수를 선언 할 수 있다. 그래서 default 메서드를 재정의하지 않아도 된다.
+아래 예제 코드를 보면 초기에 대출실행 인터페이스에서 takeGeneralLoan과 takeCreditLoan 만 정의되어 있다가 나중에 takeCoronaLoan 가 인터페이스에 추가로 정의가 되면 구현클래스에서는 구현하라고 컴파일 에러가 발생한다. 그것을 방지하기 위해 자바8에서부터 인터페이스에 default method 와 변수를 선언 할 수 있다. 그래서 default 메서드를 재정의하지 않아도 된다.
 
 <br><br>
 
