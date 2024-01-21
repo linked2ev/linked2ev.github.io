@@ -14,7 +14,7 @@ comments: true
 <br><br>
 
 
-## Class 'ModernBankLoanExecution' must either be declared 에러 발생
+## ◼︎ Class 'ModernBankLoanExecution' must either be declared 에러 발생
 
 ```java
 interface LoanExecutionInterface {
@@ -49,7 +49,9 @@ class ModernBankLoanExecution implements LoanExecutionInterface {
 <br><br>
 
 
-## 인터페이스 default method 사용
+## ◼︎ 인터페이스 default method 사용
+
+default method 를 사용하면 ModernBankLoanExecution 클래스에 takeCoronaLoan를 구현하지 않아도 된다.
 
 ```java
 interface LoanExecutionInterface {
