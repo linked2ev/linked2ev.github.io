@@ -7,4 +7,4 @@ tags: java-modern-practical
 comments: true
 ---
 
-진행 예정
+진행 예정... 01.30일로 미룸...
