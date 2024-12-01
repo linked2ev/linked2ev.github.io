@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Practical-Java] 4. Functional Interface와 Method Reference"
+title:  "[Practical-Java] 5. Functional Interface와 Method Reference (f.Lamda)"
 subtitle:   "[Java]"
 categories: java
 tags: java-modern-practical

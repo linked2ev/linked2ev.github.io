@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Practical-Java] 5. Stream"
+title:  "[Practical-Java] 6. Stream"
 subtitle:   "[Java]"
 categories: java
 tags: java-modern-practical
