@@ -123,9 +123,10 @@ Java에서 함수형 프로그래밍을 지원하기 위해 `java.util.function`
 |------------------------|---------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------|
 | **`Function<T, R>`**   | `R apply(T t)`                 | 입력을 받아 출력으로 변환하는 함수.                                                                  | `(x) -> x * 2`                          |
 | **`Consumer<T>`**      | `void accept(T t)`             | 입력을 받아 소비하는 함수. 반환값이 없음.                                                             | `(x) -> System.out.println(x)`          |
-| **`Supplier<T>`**      | `T get()`                      | 아무 입력 없이 출력을 제공하는 함수.                                                                 | `() -> new Random().nextInt()`          |
+| **`Supplier<T>`**      | `T get()`                      | 아무 입력 없이 출력을 제공(공급)하는 함수.                                                                 | `() -> new Random().nextInt()`          |
 | **`Predicate<T>`**     | `boolean test(T t)`            | 입력을 받아 조건을 테스트하고, 결과를 `boolean`으로 반환.                                                | `(x) -> x > 0`                          |
 | **`BiFunction<T, U, R>`** | `R apply(T t, U u)`       | 두 입력 값을 받아 출력으로 변환하는 함수.                                                               | `(x, y) -> x + y`                       |
+| **`BiConsumer<T, U>`** | `void accept(T t, U u)`        | 두 입력 값을 받아 소비하는 함수. 반환값이 없음.                                                          | `(x, y) -> System.out.println(x + y)`   |
 | **`UnaryOperator<T>`** | `T apply(T t)`                 | 단일 입력을 받아 동일한 타입의 결과를 반환.                                                            | `(x) -> x * x`                          |
 | **`BinaryOperator<T>`** | `T apply(T t1, T t2)`         | 두 입력 값을 받아 동일한 타입의 결과를 반환.                                                            | `(x, y) -> x + y`                       |
 
@@ -141,10 +142,19 @@ Java에서 함수형 프로그래밍을 지원하기 위해 `java.util.function`
 ```java
 import java.util.function.Function;
 
-public class Main {
+/**
+ * Function 함수형 인터페이스의 함수형 메서드는 T를 인수로 받아 R로 리턴하는 apply 메서드를 가지고 있다.
+ */
+public class FunctionExample {
+
+    public static int executeFunction(String context,
+                                     Function<String, Integer> function) {
+        return function.apply(context);
+    }
+
     public static void main(String[] args) {
-        Function<Integer, Integer> multiplyByTwo = x -> x * 2;
-        System.out.println(multiplyByTwo.apply(5)); // 출력: 10
+        FunctionExample.executeFunction("Hello! Linked2ev",
+                (String context) -> context.length());
     }
 }
 ```
@@ -158,11 +168,30 @@ public class Main {
 ```java
 import java.util.function.Consumer;
 
-public class Main {
-    public static void main(String[] args) {
-        Consumer<String> printMessage = message -> System.out.println("Message: " + message);
-        printMessage.accept("Hello, World!"); // 출력: Message: Hello, World!
+/**
+ * Consumer 함수형 인터페이스의 함수형 메서드는 accept 로 받기만 하고 리턴하지 않는 소비만 한다.
+ */
+public class ConsumerExample {
+    public static void executeConsumer(List<String> nameList, Consumer<String> consumer) {
+        for (String name : nameList) {
+            consumer.accept(name);
+        }
     }
+
+    public static void main(String[] args) {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("박대원");
+        nameList.add("임정수");
+        nameList.add("김준용");
+        nameList.add("정대호");
+
+        //ConsumerExample.executeConsumer(nameList, (String name) -> System.out.println(name));
+        ConsumerExample.executeConsumer(nameList, printOutName());
+    }
+
+    public static Consumer<String> printOutName() {
+        return (String name) -> System.out.println(name);
+    };
 }
 ```
 
@@ -174,12 +203,19 @@ public class Main {
 
 ```java
 import java.util.function.Supplier;
-import java.util.Random;
 
-public class Main {
+/**
+ * Supplier 함수형 인터페이스의 함수형 메서드는 get 으로 입력 없이 출력(공급)만 있다.
+ */
+public class SupplierExample {
+
+    public static String executeSupplier(Supplier<String> supplier) {
+        return supplier.get();
+    }
+
     public static void main(String[] args) {
-        Supplier<Integer> randomNumberSupplier = () -> new Random().nextInt(100);
-        System.out.println(randomNumberSupplier.get()); // 출력: (랜덤 숫자, 예: 42)
+        String str = "공급 중 입니다.";
+        SupplierExample.executeSupplier(() -> {return str;});
     }
 }
 ```
@@ -193,11 +229,17 @@ public class Main {
 ```java
 import java.util.function.Predicate;
 
-public class Main {
+/**
+ * Predicate 함수형 인터페이스의 함수형 메서드는 test 로 true/false 를 리턴한다.
+ */
+public class PredicateExample {
+
+    public static boolean isValid(String name, Predicate<String> predicate) {
+        return predicate.test(name);
+    }
+
     public static void main(String[] args) {
-        Predicate<Integer> isPositive = x -> x > 0;
-        System.out.println(isPositive.test(10)); // 출력: true
-        System.out.println(isPositive.test(-5)); // 출력: false
+        PredicateExample.isValid("", (String name) -> !name.isEmpty());
     }
 }
 ```
@@ -206,51 +248,102 @@ public class Main {
 
 ## 2-5. `BiFunction<T, U, R>`
 
-두 입력 값을 받아 출력을 반환.
+두 입력 값을 받아 출력을 반환
 
 ```java
 import java.util.function.BiFunction;
 
-public class Main {
+/**
+ * BiFunction 은 두 개의 입력값을 받아 하나의 결과값을 반환하는 함수형 인터페이스이다.
+ */
+public class BiFunctionExample {
     public static void main(String[] args) {
-        BiFunction<Integer, Integer, Integer> add = (x, y) -> x + y;
-        System.out.println(add.apply(3, 5)); // 출력: 8
+        // 두 정수의 합을 계산하는 BiFunction
+        BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+
+        // 두 문자열을 합치는 BiFunction
+        BiFunction<String, String, String> concatenate = (str1, str2) -> str1 + str2;
+
+        System.out.println("합: " + add.apply(10, 20)); // 출력: 합: 30
+        System.out.println("문자열 결합: " + concatenate.apply("Hello, ", "World!")); // 출력: 문자열 결합: Hello, World!
     }
 }
 ```
 
 ---
 
-## 2-6. `UnaryOperator<T>`
+## 2-6. `BiConsumer<T, U>`
 
-단일 입력을 받아 동일한 타입의 결과를 반환.
+두 입력 값을 받아 소비하는 함수. 반환값이 없음
+
+```java
+import java.util.function.BiConsumer;
+
+/**
+ * BiConsumer 는 두 개의 입력값을 받아 처리만 하고, 결과값을 반환하지 않는 함수형 인터페이스이다.
+ */
+public class BiConsumerExample {
+    public static void main(String[] args) {
+        // 두 값을 출력하는 BiConsumer
+        BiConsumer<String, Integer> printInfo = (name, age) ->
+                System.out.println("이름: " + name + ", 나이: " + age);
+
+        // 두 값을 더한 결과를 출력하는 BiConsumer
+        BiConsumer<Integer, Integer> sumPrinter = (a, b) ->
+                System.out.println("합: " + (a + b));
+
+        printInfo.accept("Alice", 30); // 출력: 이름: Alice, 나이: 30
+        sumPrinter.accept(15, 25);    // 출력: 합: 40
+    }
+}
+```
+
+---
+
+## 2-7. `UnaryOperator<T>`
+
+단일 입력을 받아 동일한 타입의 결과를 반환하며,  입력값과 출력값의 타입이 모두 동일해야 한다.
 
 ```java
 import java.util.function.UnaryOperator;
 
-public class Main {
+/**
+ * UnaryOperator 는 단일 입력을 받아 동일한 타입의 결과를 반환하는 함수형 인터페이스이다.
+ */
+public class UnaryOperatorExample {
+
     public static void main(String[] args) {
-        UnaryOperator<Integer> square = x -> x * x;
-        System.out.println(square.apply(4)); // 출력: 16
+        UnaryOperator<Integer> multiplyOp = (Integer num) -> num * 3;
+
+        System.out.println(multiplyOp.apply(1));
+        System.out.println(multiplyOp.apply(2));
+        System.out.println(multiplyOp.apply(3));
     }
 }
 ```
 
 ---
 
-## 2-7. `BinaryOperator<T>`
+## 2-8. `BinaryOperator<T>`
 
-두 입력 값을 받아 동일한 타입의 결과를 반환.
+두 입력 값을 받아 동일한 타입의 결과를 반환하며, 입력값과 출력값의 타입이 모두 동일해야 한다.
 
 ```java
 import java.util.function.BinaryOperator;
 
-public class Main {
+/**
+ * BinaryOperator 는 두 입력값과 출력값의 타입이 모두 동일해야 한다는 함수형 인터페이스이다.
+ */
+public class BinaryOperatorExample {
+
     public static void main(String[] args) {
-        BinaryOperator<Integer> multiply = (x, y) -> x * y;
-        System.out.println(multiply.apply(3, 7)); // 출력: 21
+        BinaryOperator<Integer> op = (Integer a, Integer b) -> a + b;
+
+        System.out.println(op.apply(1, 2));
+        System.out.println(op.apply(1, 3));
     }
 }
+
 ```
 
 <br>
@@ -368,7 +461,7 @@ public class Main {
 <br>
 
 
-# 3-3. 생성자 참조
+## 3-3. 생성자 참조
 
 생성자 참조(Constructor Reference)는 반드시 함수형 인터페이스와 함께 사용된다.  
 Java에서 생성자 참조는 람다 표현식의 단축 표현이기 떄문이기에 아래 2개 코드는 동일하다.
@@ -421,3 +514,34 @@ public class Main {
     }
 }
 ```
+
+<br>
+
+
+# 4. Lamda Expression 사용하는 이유
+
+- 익명클래스의 단점을 해결하기 위해 람다 표현식을 사용한다.
+- 람다 표현식을 재활용하고 단점을 보완하기 위해 메서드 참조 기능을 사용한다.
+
+`자바에서 람다식이 추가되면서 함수형 인터페이스와 메서드 참조 기능이 생기게 되었고 이 바탕으로 Stream이 등장`하게 되었다. 이러한 기능들로 자바에서도 함수형 프로그래밍과 스트림 처리가 가능하게 되었다.
+
+### 람다 표현식이 필요한 이유
+
+자바 프로그램은 프레임워크와 라이브러리, API 등이 지속적으로 많이 추가되고 객체지향설계로 인해 인터페이스와 구현클래스들 등이 많아지면서 클래스 파일들 자체가 많이 생긴다. 이로 인해 클래스 파일을 줄이기 위해 간단한 로직인 경우에는 별도로 중첩 클래스나 익명 클래스 형태로 구현을 하지만 이래나 저래나 코드양이 방대해지기 마련이다. 그래서 자바 진영에서 익명클래스를 대체하기 위해 람다식이 나오게 되었다.
+
+```java
+// 익명 클래스를 사용하여 Comparator 구현
+Arrays.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String s1, String s2) {
+        return s1.compareTo(s2);
+    }
+});
+```
+
+```java
+// 람다식을 사용하여 Comparator 구현
+Arrays.sort(names, (s1, s2) -> s1.compareTo(s2));
+```
+
+`람다식은 인터페이스는 오직 public 메서드 하나만 가지고 있는 인터페이스여야 한다. 자바 8에서 이러한 인터페이스를 함수형 인터페이스라고 하고 그 안에 단 하나의 추상 메서드를 함수형 메서드라고 한다.`
