@@ -33,7 +33,7 @@ Java의 java.util.concurrent 패키지 컨커런트 API는 멀티스레드 프�
 
 ## Executor 인터페이스
 
-`Executor` 인터페이스는 가장 기본적인 실행자 인터페이스로, 단일 메소드 `execute(Runnable command)`를 정의한다. 이 메소드는 `Runnable` 객체를 받아서, 즉시 실행하거나 나중에 실행하기 위해 대기열에 넣습니다. 이 인터페이스의 구현체는 이 태스크를 어떻게 처리할지(즉시 실행, 큐에 넣기, 스레드 풀 사용 등) 결정한다.
+`Executor` 인터페이스는 가장 기본적인 실행자 인터페이스로, 단일 메소드 `execute(Runnable command)`를 정의한다. 이 메소드는 `Runnable` 객체를 받아서, 즉시 실행하거나 나중에 실행하기 위해 대기열에 넣는다. 이 인터페이스의 구현체는 이 태스크를 어떻게 처리할지(즉시 실행, 큐에 넣기, 스레드 풀 사용 등) 결정한다.
 
 <br>
 
@@ -69,33 +69,42 @@ Java의 java.util.concurrent 패키지 컨커런트 API는 멀티스레드 프�
 
 <br>
 
-### Executor 인터페이스 예제 코드
+### Executor 인터페이스의 execute 메서드 사용 예제 코드
 
 ```java
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
+/**
+ * Executor 인터페이스의 execute 메서드 사용 예제코드로 이 메서드의 목적은 작업(Runnable 객체)을 받아서 어떻게 실행할지 결정하는 것이다.
+ * execute 메서드는 매개변수로 Runnable 태스크를 받고, 반환값이 없습니다(void 반환).
+ * 이 메서드는 단순히 받은 태스크를 실행하는 기능을 가지며, 이 태스크의 실행을 스레드 풀에 위임하거나 즉시 실행할 수 있다.
+ */
 public class SimpleExecutorExample {
-    public static void main(String[] args) {
-        // Executor 인터페이스의 구현체를 생성
-        // 여기서는 단일 스레드를 사용하는 Executors의 newSingleThreadExecutor 메서드를 사용
-        Executor executor = Executors.newSingleThreadExecutor();
 
-        // Runnable 태스크를 정의
-        Runnable task = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Executed by: " + Thread.currentThread().getName());
-            }
+    public static void main(String[] args) {
+
+        Executor executor = new CustomExecutor();
+
+        // Runnable 태스크 생성 및 실행
+        Runnable task1 = () -> {
+            System.out.println("Running task 1 in: " + Thread.currentThread().getName());
         };
 
-        // Executor를 통해 태스크를 실행
-        executor.execute(task);
+        Runnable task2 = () -> {
+            System.out.println("Running task 2 in: " + Thread.currentThread().getName());
+        };
 
-        // ExecutorService를 안전하게 종료하기 위한 코드
-        // ExecutorService로 캐스팅하여 shutdown 메서드를 호출
-        if (executor instanceof ExecutorService) {
-            ((ExecutorService) executor).shutdown();
+        // 태스크를 Executor를 통해 실행
+        executor.execute(task1);
+        executor.execute(task2);
+    }
+
+    //Executor 인터페이스를 구현하며, execute 메서드 내에서 받은 Runnable 객체를 새로운 스레드에서 실행
+    static class CustomExecutor implements Executor {
+        @Override
+        public void execute(Runnable task) {
+            Thread newThread = new Thread(task);
+            newThread.start();  // 새 스레드에서 Runnable 태스크 실행
         }
     }
 }
