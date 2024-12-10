@@ -7,4 +7,4 @@ tags: java-modern-practical
 comments: true
 ---
 
-...
+... 이번주까지만 포스팅 정리
