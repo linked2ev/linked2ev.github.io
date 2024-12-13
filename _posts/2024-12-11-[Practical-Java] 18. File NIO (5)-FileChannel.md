@@ -18,30 +18,30 @@ comments: true
 ## FileChannel 주요 특징
 
 1. **읽기와 쓰기**
-- **`read(ByteBuffer dst)`**: 파일로부터 데이터를 읽어 ByteBuffer에 저정한다. 이 메서드는 읽은 바이트 수를 반환하며, 파일 끝에 도달하면 -1을 반환한다.
-- **`write(ByteBuffer src)`**: ByteBuffer에서 데이터를 읽어 파일에 쓰기를 수행한다. 이 메서드는 쓴 바이트 수를 반환한다.
+- **read(ByteBuffer dst)**: 파일로부터 데이터를 읽어 ByteBuffer에 저정한다. 이 메서드는 읽은 바이트 수를 반환하며, 파일 끝에 도달하면 -1을 반환한다.
+- **write(ByteBuffer src)**: ByteBuffer에서 데이터를 읽어 파일에 쓰기를 수행한다. 이 메서드는 쓴 바이트 수를 반환한다.
 
 2. **파일 위치 조정**
-- **`position()`**: 현재 파일의 읽기/쓰기 위치를 반환한다.
-- **`position(long newPosition)`**: 파일의 읽기/쓰기 위치를 지정된 위치로 설정한다.
+- **position()**: 현재 파일의 읽기/쓰기 위치를 반환한다.
+- **position(long newPosition)**: 파일의 읽기/쓰기 위치를 지정된 위치로 설정한다.
 
 3. **파일 크기 조정**
-- **`size()`**: 파일의 전체 크기를 바이트 단위로 반환한다.
-- **`truncate(long size)`**: 파일을 지정된 크기로 잘라내고 크기를 줄인다.
+- **size()**: 파일의 전체 크기를 바이트 단위로 반환한다.
+- **truncate(long size)**: 파일을 지정된 크기로 잘라내고 크기를 줄인다.
 
 4. **메모리 매핑**
-- **`map(FileChannel.MapMode mode, long position, long size)`**: 파일의 지정된 부분을 메모리에 매핑한다. 매핑 모드에는 읽기 전용, 쓰기 전용, 읽기/쓰기가 포함된다.
+- **map(FileChannel.MapMode mode, long position, long size)**: 파일의 지정된 부분을 메모리에 매핑한다. 매핑 모드에는 읽기 전용, 쓰기 전용, 읽기/쓰기가 포함된다.
 
 5. **파일 잠금**
-- **`lock(long position, long size, boolean shared)`**: 파일의 지정된 부분에 대한 잠금을 설정한다. `shared`가 `true`이면 공유 잠금, `false`이면 독점 잠금을 의미한다.
-- **`tryLock(long position, long size, boolean shared)`**: 잠금을 시도하고, 잠금이 성공하면 해당 잠금을 반환한다. 잠금을 획득할 수 없는 경우 `null`을 반환한다.
+- **lock(long position, long size, boolean shared)**: 파일의 지정된 부분에 대한 잠금을 설정한다. `shared`가 `true`이면 공유 잠금, `false`이면 독점 잠금을 의미한다.
+- **tryLock(long position, long size, boolean shared)**: 잠금을 시도하고, 잠금이 성공하면 해당 잠금을 반환한다. 잠금을 획득할 수 없는 경우 `null`을 반환한다.
 
 6. **채널 간 데이터 전송**
 - **`transferTo(long position, long count, WritableByteChannel target)`**: 현재 `FileChannel`에서 다른 `WritableByteChannel`로 데이터를 직접 전송한다.
 - **`transferFrom(ReadableByteChannel src, long position, long count)`**: 다른 `ReadableByteChannel`에서 현재 `FileChannel`로 데이터를 직접 전송한다.
 
 7. **파일 내용 강제 출력**
-- **`force(boolean metaData)`**: 파일의 변경사항을 저장매체에 강제로 쓰도록 한다. `metaData`가 `true`이면 메타데이터의 변경사항까지 저장매체에 기록한다.
+- **force(boolean metaData)**: 파일의 변경사항을 저장매체에 강제로 쓰도록 한다. `metaData`가 `true`이면 메타데이터의 변경사항까지 저장매체에 기록한다.
 
 8. **비동기 작업 지원**
 - **`AsynchronousFileChannel 클래스`** : 비록 FileChannel 자체는 비동기 작업을 지원하지 않지만, AsynchronousFileChannel 클래스를 통해 비슷한 기능을 비동기적으로 수행할 수 있다. 이를 통해 I/O 작업을 논블로킹 방식으로 처리할 수 있으며, 작업 완료 후 콜백을 통해 결과를 처리할 수 있다.
@@ -88,7 +88,7 @@ FileChannel의 `transferTo()`와 `transferFrom()` 메소드들은 중간 버퍼�
 - `transferTo()`는 소스 채널에서 목적지 채널로 직접 데이터를 전송함. 반복문은 파일의 전체 크기만큼 데이터가 전송될 때까지 계속 실행
 - `transferFrom()`는 소스 채널로부터 목적지 채널로 데이터를 갖고옴. 이 메소드는 내부적으로 `transferTo()`와 유사하게 작동하지만, 메소드 호출 방식이 다름
 
-## `transferTo()`를 사용한 파일 처리 예제
+## **transferTo()**를 사용한 파일 처리 예제
 
 ```java
 public class NIOFileChannelTransferToExample {
@@ -111,7 +111,7 @@ public class NIOFileChannelTransferToExample {
 }
 ```
 
-### `transferFrom()`를 사용한 파일 처리 예제
+## **transferFrom()**를 사용한 파일 처리 예제
 
 ```java
 public class NIOFileChannelTransferFromExample {
