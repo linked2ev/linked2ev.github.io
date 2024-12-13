@@ -7,7 +7,7 @@ tags: java-modern-practical
 comments: true
 ---
 
-Java NIO에서 Files 클래스의 `newByteChannel` 메소드는 `SeekableByteChannel` 인터페이스의 구현체를 반환합니다. 이 채널은 파일과의 입출력을 위해 바이트 기반의 채널을 제공하며, 읽기, 쓰기, 파일 위치 변경, 파일 크기 조정 등의 작업을 수행할 수 있다. `SeekableByteChannel`은 Java 7부터 도입된 `java.nio.file` 패키지의 일부로, 기존 `FileChannel`보다 더 유연하고 간단한 API를 제공하여 다양한 파일 작업을 지원한다.
+Java NIO에서 Files 클래스의 `newByteChannel` 메소드는 `SeekableByteChannel` 인터페이스의 구현체를 반환한다. 이 채널은 파일과의 입출력을 위해 바이트 기반의 채널을 제공하며, 읽기, 쓰기, 파일 위치 변경, 파일 크기 조정 등의 작업을 수행할 수 있다. `SeekableByteChannel`은 Java 7부터 도입된 `java.nio.file` 패키지의 일부로, 기존 `FileChannel`보다 더 유연하고 간단한 API를 제공하여 다양한 파일 작업을 지원한다.
 
 <br>
 
@@ -137,7 +137,7 @@ public class NIOByteChannelExample {
 ```java
 public class NIOSeekableByteChannelExample {
     public static void main(String[] args) {
-        Path path = Paths.get("/Users/linked2ev/Dev/eduapps/ModernJava/file_test/example.txt");
+        Path path = Paths.get("/Users/example/file_test/example.txt");
 
         // 파일에 데이터 쓰기
         try (SeekableByteChannel sbc = Files.newByteChannel(path, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
