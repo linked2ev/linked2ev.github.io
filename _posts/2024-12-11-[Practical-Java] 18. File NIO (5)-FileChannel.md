@@ -15,7 +15,7 @@ comments: true
 
 # 1. FileChannel 클래스
 
-## FileChannel 주요 특징
+## ◼︎ FileChannel 주요 특징
 
 1. **읽기와 쓰기**
 - **read(ByteBuffer dst)**: 파일로부터 데이터를 읽어 ByteBuffer에 저정한다. 이 메서드는 읽은 바이트 수를 반환하며, 파일 끝에 도달하면 -1을 반환한다.
@@ -49,7 +49,7 @@ comments: true
 <br>
 
 
-## FileChannel 클래스를 이용 파일 처리 예제
+### ◼︎ FileChannel 클래스를 이용 파일 처리 예제
 
 ```java
 public class NIOFileChannelExample {
@@ -88,7 +88,7 @@ FileChannel의 `transferTo()`와 `transferFrom()` 메소드들은 중간 버퍼�
 - `transferTo()`는 소스 채널에서 목적지 채널로 직접 데이터를 전송함. 반복문은 파일의 전체 크기만큼 데이터가 전송될 때까지 계속 실행
 - `transferFrom()`는 소스 채널로부터 목적지 채널로 데이터를 갖고옴. 이 메소드는 내부적으로 `transferTo()`와 유사하게 작동하지만, 메소드 호출 방식이 다름
 
-## **transferTo()**를 사용한 파일 처리 예제
+### ◼︎ **transferTo()**를 사용한 파일 처리 예제
 
 ```java
 public class NIOFileChannelTransferToExample {
@@ -111,7 +111,7 @@ public class NIOFileChannelTransferToExample {
 }
 ```
 
-## **transferFrom()**를 사용한 파일 처리 예제
+### ◼︎ **transferFrom()**를 사용한 파일 처리 예제
 
 ```java
 public class NIOFileChannelTransferFromExample {
@@ -146,7 +146,7 @@ FileChannel 클래스 **transferTo()**와 **transferFrom()** 메소드들은 Soc
 Java의 `FileChannel`은 기본적으로 비동기 모드를 직접 지원하지 않는다. 그러나 `AsynchronousFileChannel` 클래스를 사용하여 파일 I/O 작업을 비동기적으로 수행할 수 있다. 이 클래스는 NIO의 일부로서, 파일 채널의 비동기 버전을 제공하여 파일 읽기, 쓰기 등의 작업을 비동기적으로 처리할 수 있도록 도와준다.
 
 
-## AsynchronousFileChannel 클래스 비동기적 파일 처리 예제 코드
+### ◼︎ AsynchronousFileChannel 클래스 비동기적 파일 처리 예제 코드
 
 뭔가 내가 원하는 형태로 비동기적으로 처리할려면 ` try-with-resources`를 쓰면 안되는거 같다. 여기서 파일 채널을 닫아서 AsynchronousCloseException 에러가 발생하는 거 같다. 일반적인 try-catch문 사용하니 정상적으로 작동한다.
 단순 예제코드라 나중에 사용할 때가 있으면 여러 케이스로 확인이 필요해보인다.

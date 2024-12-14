@@ -25,7 +25,8 @@ FileVisitor 인터페이스의 메서드에 대한 설명이다. `BasicFileAttri
 
 <br>
 
-### 예제 코드
+
+### ◼︎ 예제 코드
 
 ```java
 import java.io.IOException;
@@ -102,19 +103,19 @@ Java의 `Files` 클래스는 파일 시스템을 다루는 유용한 메서드�
 - **walk(Path start, FileVisitOption... options)**
 - **walk(Path start, int maxDepth, FileVisitOption... options)**
 
-#### 파라미터 설명
+#### ◼︎ 파라미터 설명
 
 - **Path start**: 탐색을 시작할 디렉터리의 경로
 - **int maxDepth**: 탐색할 최대 깊이. 지정하지 않으면 기본값은 디렉터리 트리의 최대 깊이까지 탐색
 - **FileVisitOption... options**: 탐색 옵션, 예를 들어 `FOLLOW_LINKS`는 심볼릭 링크를 따라가야 할지 여부를 지정
 
-#### 반환 타입
+#### ◼︎ 반환 타입
 
 - **`Stream<Path>`**를 반환
 
 <br>
 
-### Files.walk 예제 코드
+### ◼︎ Files.walk 예제 코드
 
 ```java
 public class WalkExample {
@@ -144,20 +145,20 @@ public class WalkExample {
 - **walkFileTree(Path start, FileVisitor<? super Path> visitor)**
 - **walkFileTree(Path start, Set<FileVisitOption> options, int maxDepth, FileVisitor<? super Path> visitor)**
 
-#### 파라미터 설명
+#### ◼︎ 파라미터 설명
 
 - **Path start**: 파일 트리 탐색을 시작할 디렉터리의 경로
 - **Set<FileVisitOption> options**: 파일 탐색 옵션
 - **int maxDepth**: 탐색할 최대 깊이
 - **FileVisitor<? super Path> visitor**: 파일 또는 디렉터리를 방문할 때 호출할 `FileVisitor` 인터페이스의 구현체
 
-#### 반환 타입
+#### ◼︎ 반환 타입
 
 - **void**
 
 <br>
 
-### Files.walkFileTree 예제 코드
+### ◼︎ Files.walkFileTree 예제 코드
 
 ```java
 class FilesFinder implements FileVisitor<Path> {//extends SimpleFileVisitor<Path> 
@@ -230,7 +231,7 @@ public class WalkFileTreeExample {
 
 `Files.find`는 Files.walk와 유사하게 디렉터리를 재귀적으로 탐색하지만, 사용자가 제공하는 `BiPredicate<Path, BasicFileAttributes>`를 사용하여 파일과 디렉터리를 필터링 할 수 있다. BasicFileAttributes 클래스를 활용해 파일 속성정보를 가져와 커스텀 필터가 가능한게 장점이다.
 
-### Files.find 예제 코드
+### ◼︎ Files.find 예제 코드
 
 ```java
 public class FindExample {
