@@ -33,10 +33,10 @@ module 모듈이름 {
     exports 공개할패키지2;
 }
 ```
-예를 들어, 어떤 애플리케이션이 `java.sql` 모듈을 필요로 할 경우, 모듈 설명자에는 `requires java.sql;`을 포함한다.
+예를 들어, 어떤 애플리케이션이 **java.sql** 모듈을 필요로 할 경우, 모듈 설명자에는 `**equires java.sql;**을 포함한다.
 
 ### Java 플랫폼의 모듈화
-Java 자체도 `java.base`, `java.sql`, `java.xml` 등 다양한 표준 모듈로 나뉘어져 있어, 애플리케이션에 필요한 부분만 선택하여 사용할 수 있다.
+Java 자체도 **java.base**, **java.sql**, **java.xml** 등 다양한 표준 모듈로 나뉘어져 있어, 애플리케이션에 필요한 부분만 선택하여 사용할 수 있다.
 
 Java 모듈 시스템은 큰 프로젝트에서 의존성을 더 잘 관리하고, 애플리케이션을 보다 안전하고 유지보수하기 쉽게 만들어준다. 모듈 시스템의 도입은 특히 대규모 애플리케이션 또는 많은 외부 라이브러리에 의존하는 프로젝트에 유용하다.
 
@@ -44,15 +44,15 @@ Java 모듈 시스템은 큰 프로젝트에서 의존성을 더 잘 관리하�
 
 예시로 공급자모듈, 서비스모듈, 소비자모듈 구조인 예시이다.
 
-공급자모듈 : 서비스 인터페이스를 구현한 클래스들이 위치한 모듈이다. 경우에 따라서 서비스 모듈을 포함시킬 수 있다. 모듈 패스에 서비스 모듈이 포함되어 있어야 한다.
-서비스모듈 : 서비스 인터페이스들을 모아 놓은 모듈이다. 모듈이 세분화되는 것을 원하지 않는다면 공급자 모듈에 포함시킬 수도 있다.
-소비자모듈 : 서비스 모듈을 소비하는 모듈이다. 모듈에 서비스 모듈과 공급자 모듈이 모두 포함되어 있어야 한다.
+공급자모듈 : 서비스 인터페이스를 구현한 클래스들이 위치한 모듈이다. 경우에 따라서 서비스 모듈을 포함시킬 수 있다. 모듈 패스에 서비스 모듈이 포함되어 있어야 한다.  
+서비스모듈 : 서비스 인터페이스들을 모아 놓은 모듈이다. 모듈이 세분화되는 것을 원하지 않는다면 공급자 모듈에 포함시킬 수도 있다.  
+소비자모듈 : 서비스 모듈을 소비하는 모듈이다. 모듈에 서비스 모듈과 공급자 모듈이 모두 포함되어 있어야 한다.  
 
 <br>
 
 > module-info.java
 
-```java
+```js
 module module.sample.provider {
     // service_registrant 패키지를 외부에 노출시킨다.
     exports sample_module.service_registrant;
@@ -68,7 +68,7 @@ module module.sample.provider {
 
 > module-info.java
 
-```java
+```js
 module module.sample.consumer {
     //모듈 선언
     exports sample_module.service_consumer;
@@ -115,7 +115,7 @@ public class ConsumerModule {
 
 <br>
 
-> jdeps 명령어
+#### jdeps 명령어
 
 ```bash
 jdeps [options] <jar 파일 또는 클래스 파일>
@@ -128,7 +128,10 @@ jdeps [options] <jar 파일 또는 클래스 파일>
 - `-recursive`: 지정된 클래스나 패키지의 의존성을 재귀적으로 분석한다.
 - `-jdkinternals`: JDK 내부 API 사용을 분석하여, 이후 릴리스에서 사용이 제한될 수 있는 API를 식별한다.
 
-## 사용 예시
+<br>
+
+
+## 2-1. jdeps 사용 예시
 
 ### 1) 단일 JAR 파일의 경우
 만약 "JavaModule"이라는 이름의 JAR 파일이 있다면, 해당 파일의 종속성을 분석해서 `JavaModule.jar` 파일 내의 모든 클래스에 대한 자세한 종속성 정보를 출력한다.
@@ -137,12 +140,16 @@ jdeps [options] <jar 파일 또는 클래스 파일>
 jdeps -v JavaModule.jar
 ```
 
+<br>
+
 ### 2) 여러 JAR 파일이 있는 프로젝트의 경우
 프로젝트에 여러 JAR 파일이 포함되어 있고, 이들 간의 종속성을 분석하고 싶다면, 각각의 JAR 파일에 대해 `jdeps`를 실행하거나, 모든 JAR 파일을 포함하는 디렉토리를 지정할 수 있다.
 
 ```bash
 jdeps -v /path/to/project/libs/*.jar
 ```
+
+<br>
 
 ### 3) Java 모듈의 경우
 "JavaModule"이라는 이름의 Java 모듈이 있다면, 해당 모듈의 종속성을 분석하기 위해 모듈 경로와 모듈 이름을 명시적으로 지정할 필요가 있다.  
@@ -151,6 +158,8 @@ jdeps -v /path/to/project/libs/*.jar
 ```bash
 jdeps --module-path /path/to/modules --module JavaModule
 ```
+
+<br>
 
 ### 4) JDK 내부 API 사용 검사
 "JavaModule" 프로젝트가 JDK 내부 API를 사용하고 있는지 확인하려면 다음과 같은 명령을 사용할 수 있습니다:
@@ -181,7 +190,7 @@ jlink는 Java 모듈 시스템을 활용하여 작은 크기의 커스텀 런타
 
 <br>
 
-## jlink 이미지 생성
+## 3-1. jlink 이미지 생성
 
 `jlink` 명령어를 통해서 이미지를 만들어보자.
 
@@ -198,7 +207,7 @@ $ production % jlink --module-path .:%JAVA_HOME/jmodes --add-modules module.samp
 
 <br>
 
-## 생성 된 이미지 실행
+## 3-2. 생성 된 이미지 실행
 
 생성 된 커스텀jre를 통해서 실행할려면 customjre 폴더 내의 Java 런타임을 사용해 실행해보자 
 

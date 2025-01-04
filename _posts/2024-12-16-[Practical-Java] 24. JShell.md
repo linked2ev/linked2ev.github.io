@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Practical-Java] 24. Java Module"
+title:  "[Practical-Java] 24. JShell"
 subtitle:   "[Java]"
 categories: java
 tags: java-modern-practical
