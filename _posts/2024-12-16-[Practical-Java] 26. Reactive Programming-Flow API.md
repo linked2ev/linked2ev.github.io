@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Practical-Java] 25. Reactive Programming-Flow API"
+title:  "[Practical-Java] 26. Reactive Programming-Flow API"
 subtitle:   "[Java]"
 categories: java
 tags: java-modern-practical
