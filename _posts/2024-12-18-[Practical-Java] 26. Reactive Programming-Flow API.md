@@ -85,24 +85,25 @@ Java에서는 이러한 Reactive Streams 사양을 지원하기 위해 Java 9부
 
 - Publisher가 발행하는 데이터를 **구독**(Subscribe)하고, 데이터(아이템)가 들어올 때(`onNext`) 원하는 작업을 수행한다.  
 - 주요 콜백 메서드
-  - `onSubscribe(Subscription subscription)`: 구독이 시작될 때 호출  
-  - `onNext(T item)`: 새 아이템 수신 시 호출  
-  - `onError(Throwable throwable)`: 스트림 처리 중 에러 발생 시 호출  
-  - `onComplete()`: 모든 데이터 처리가 완료되었을 때 호출
+  - `onSubscribe(Subscription subscription)`: Subscriber가 Publisherdp 등록되었을 때, 구독이 시작될 때 호출(한번만 호출) 
+  - `onNext(T item)`: Publisher로부터 메시지를 수신 받았을 때 마다 호출되는 메서드
+  - `onError(Throwable throwable)`: Publisher가 에러가 발생해서 더 이상 메시지 전송을 못하고 이로 인해 Subscriber가 더 이상 메시지를 정상적으로 수신하지 못하는 상황에 호출되며, 이 메서드가 호출되면 Subscriber는 종료
+  - `onComplete()`: 정상적으로 Publisher의 메시지 수신이 종료되었을 경우 호출
 
 
 ### ◼︎ **`Flow.Subscription`**
 
 - Subscriber가 Publisher에게 **얼마나 많은 데이터를 요청**할 것인지를 조절(Back-Pressure)하는 인터페이스다.  
 - 주요 메서드
-  - `request(long n)`: n개의 아이템을 요청한다  
-  - `cancel()`: 구독을 취소한다
+  - `request(long n)`: Subscriber 가 Publisher 에 메시지를 전달해 달라고 요청할 때 사용
+  - `cancel()`: Subscriber가 Publisher에게 더 이상 메시지 수신하지 않겠다고 알리 때 사용(구독 취소)
 
 
 ### ◼︎ **`Flow.Processor<T,R>`**
 
 - Publisher이자 Subscriber인 존재로, 입력 스트림(T)을 받아서 변환(Processing)하고, 변환된 결과(R)를 다시 다음 Subscriber에게 발행한다.  
 - 예: `Processor<String, Integer>`가 문자열을 정수로 변환한 뒤 발행
+- publisher 에 processor 를 등록하고, processor 에 subscriber 를 등록
 
 
 ### ◼︎ **`SubmissionPublisher<T>`**
@@ -209,21 +210,22 @@ Java에서는 이러한 Reactive Streams 사양을 지원하기 위해 Java 9부
 
 ## ◼︎ 전체 흐름 요약
 
-```
-┌────────────┐   (1) subscribe(...)  ┌──────────────┐ (2) subscribe(...) ┌────────────┐
-│  Producer  │ --------------------> │   Processor  │ -----------------> │ Subscriber │
-│(Publisher) │                       │(Pub & Subscr)│                    │ (Consumer) │
-└──────┬─────┘                       └───────┬──────┘                    └──────┬─────┘
-       │                                     │                                  │
-       │  onSubscribe(SubscriptionA)         │ onSubscribe(SubscriptionB)       │
-       │                                     │                                  │
-       │  request(n)                         │  request(m)                      │
-       │  cancel()                           │  cancel()                        │
-       ▼                                     ▼                                  │
-┌─────────────────────┐              ┌───────────────────┐                      │
-│   SubscriptionA     │ <----------> │   SubscriptionB   │ <--------------------┘
+```plaintext
+┌────────────┐   (1) subscribe(...)  ┌──────────────┐   (2) subscribe(...)  ┌────────────┐
+│  Producer  │ --------------------> │   Processor  │ --------------------> │ Subscriber │
+│(Publisher) │                       │(Pub & Subscr)│                       │ (Consumer) │
+└──────┬─────┘                       └───────┬──────┘                       └──────┬─────┘
+       │                                     │                                     │
+       │  onSubscribe(SubscriptionA)         │  onSubscribe(SubscriptionB)         │
+       │                                     │                                     │
+       │  request(n)                         │  request(m)                         │
+       │  cancel()                           │  cancel()                           │
+       ▼                                     ▼                                     │
+┌─────────────────────┐              ┌───────────────────┐                         │
+│   SubscriptionA     │ <----------> │   SubscriptionB   │ <-----------------------┘
 │  (Producer->Proc)   │   메시지/객체   │   (Proc->Subs)    │ (요청, 취소 등 조정)
-└─────────────────────┘              └───────────────────┘ onNext,onError,onComplete
+└─────────────────────┘              └───────────────────┘
+                                    onNext, onError, onComplete
 ```
 
 1. **데이터 발행(Producer/Publisher)**  
@@ -324,4 +326,344 @@ Reactive Streams에서는 다음과 같이 **Push와 Pull**이 결합된 흐름�
 
 ---
 
-천천히
+
+# 7. Flow API 예제
+
+이 세 개의 클래스는 **Publisher**, **Processor**, **Subscriber** 역할을 수행하며, Java Flow API를 이용해 비동기 스트림 처리를 구현한 예제이다. 해당 소스 출처는 **`<Practical 모던 자바>`** 책 예제 코드이다.
+
+<br>
+
+### 7-1. ConcurrentPublisher.java
+
+```java
+/*
+ * Publisher 예제
+ * - Publisher 가 Subscriber 로부터 받는 요청은 특별한 데이터나 전문 등이 아닌
+ *   오직 정수값 하나를 받는다. 즉, Subscriber 가 Publisher 에 메시지를 달라고 요청하는 것 외에는 없다.
+ * - 반대로 Publisher 는 Subscriber 에 자바의 객체 형태로 데이터를 전송할 수 있어서 메시지를 전달하는 측면에서 제약이 없다.
+ */
+public class ConcurrentPublisher<T> implements Flow.Publisher<String> {
+    //ExecutorService 객체 생성
+    private final ExecutorService executor = ForkJoinPool.commonPool();
+
+    @Override
+    public synchronized void subscribe(Flow.Subscriber<? super String> subscriber) {
+        ExecutorSubscription subscription = new ExecutorSubscription(subscriber, executor);
+        subscriber.onSubscribe(subscription);
+    }
+
+    class ExecutorSubscription implements Flow.Subscription {
+        //ExecutorService 를 이용해서 병렬 처리한다.
+        private ExecutorService executor;
+        private Flow.Subscriber<? super String> subscriber;
+        private Future<?> future;
+
+        public ExecutorSubscription(Flow.Subscriber<? super String> subscriber, ExecutorService executor) {
+            this.subscriber = subscriber;
+            //Publisher 로부터 ExecutorService 를 전달 받는다.
+            this.executor = executor;
+        }
+
+        @Override
+        public void request(long n) {
+            //비동기 호출을 한다.
+            future = executor.submit(() -> publishItems(n));
+        }
+
+        @Override
+        public void cancel() {
+            if (future != null) future.cancel(false);
+            System.out.println("Canceled");
+        }
+
+        private void publishItems(long n) {
+            //n 번 반복해서 메시지를 전송
+            for (var i = 0; i<n; i++) {
+                subscriber.onNext("# Hello Subscriber!! " + n);
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        ConcurrentPublisher<String> publisher = new ConcurrentPublisher<>();
+        publisher.subscribe(new FirstSubscriber<>("Concurrent Subscriber-1", 10));
+        publisher.subscribe(new FirstSubscriber<>("Concurrent Subscriber-2", 10));
+
+        TimeUnit.SECONDS.sleep(20);
+    }
+}
+```
+
+<br>
+
+
+### 7-2. FirstSubscriber.java
+
+```java
+/**
+ * Flow.Subscriber 인터페이스 구현 예제
+ * @param <T>
+ */
+public class FirstSubscriber<T> implements Flow.Subscriber<String> {
+
+    private AtomicInteger maxNumber;
+    private String subscriberName;
+    private Subscription subscription;
+
+    public FirstSubscriber(String subscriberName, int maxRequest) {
+        this.subscriberName = subscriberName;
+        this.maxNumber = new AtomicInteger(maxRequest);
+    }
+
+    /**
+     * 최소 Publisher 에 등록되었을 때 호출되는 메서드
+     * @param subscription a new subscription
+     */
+    @Override
+    public void onSubscribe(Flow.Subscription subscription) {
+        this.subscription = subscription;
+        subscription.request(1);    //Publisher 에게 메시지를 요청한다.
+    }
+
+    /**
+     * Publisher 로부터 메시지를 수신했을 때 호출되는 메서드
+     * @param item the item
+     */
+    @Override
+    public void onNext(String item) {
+        System.out.println(subscriberName + ", 수신 항목 : " + item);
+
+        //최대 호출값을 하나 줄임
+        maxNumber.decrementAndGet();
+        //-1 이 되기 전까지 반복해서 Publisher 에 데이터를 요청한다.
+        if (maxNumber.get() > -1) {
+            //1초 대기 후 요청
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            subscription.request(1);
+        }
+    }
+
+    /**
+     * 에러가 발생했을 때 호출되는 메서드
+     * @param throwable the exception
+     */
+    @Override
+    public void onError(Throwable throwable) {
+        throwable.printStackTrace();
+    }
+
+    /**
+     * 종료되었을 때 호출되는 메서드
+     */
+    @Override
+    public void onComplete() {
+        System.out.println(subscriberName + ", 완료");
+        subscription.cancel();
+    }
+}
+```
+
+<br>
+
+
+### 7-3. FirstProcessor.java
+
+```java
+/**
+ * Flow API 에서 제공하는 Processor 구현
+ * - Publisher 와 Subscriber 를 다시 정의함으로서 데이터를 중계
+ * @param <T>
+ * @param <R>
+ */
+public class FirstProcessor<T, R> extends SubmissionPublisher<R> implements Flow.Processor<T, R> {
+    private Function<T, R> function;
+    private Flow.Subscription subscription;
+
+    public FirstProcessor(Function<T, R> function) {
+        this.function = function;
+    }
+
+    @Override
+    public void onSubscribe(Flow.Subscription subscription) {
+        this.subscription = subscription;
+        subscription.request(1);
+    }
+
+    @Override
+    public void onNext(T item) {
+        submit(function.apply(item));
+        subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+        throwable.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
+        close();
+    }
+
+    public static void main(String[] args) throws Exception {
+        ConcurrentPublisher<String> publisher = new ConcurrentPublisher<>();
+        FirstProcessor<String, String> processor = new FirstProcessor<>(name->name + "값을 변환");
+
+        FirstSubscriber<String> subscriber1 = new FirstSubscriber<>("Subscriber-1", 10);
+        FirstSubscriber<String> subscriber2 = new FirstSubscriber<>("Subscriber-2", 10);
+
+        publisher.subscribe(processor);     // Publisher 가 Processor 를 구독
+        processor.subscribe(subscriber1);   // Processor 가 Subscriber-1을 구독
+        processor.subscribe(subscriber2);   // Processor 가 Subscriber-2를 구독
+
+        TimeUnit.SECONDS.sleep(10);
+    }
+}
+```
+
+<br><br>
+
+---
+
+
+# 8. Flow API의 `처리 기준`으로 정리
+
+## ① 구독 설정 (Publisher 생성 및 Subscriber 연결)
+
+```java
+ConcurrentPublisher<String> publisher = new ConcurrentPublisher<>();
+FirstProcessor<String, String> processor = new FirstProcessor<>(name -> name + "값을 변환");
+FirstSubscriber<String> subscriber1 = new FirstSubscriber<>("Subscriber-1", 10);
+FirstSubscriber<String> subscriber2 = new FirstSubscriber<>("Subscriber-2", 10);
+
+publisher.subscribe(processor);          // Publisher가 Processor를 구독
+processor.subscribe(subscriber1);        // Processor가 Subscriber-1을 구독
+processor.subscribe(subscriber2);        // Processor가 Subscriber-2를 구독
+```
+
+- **Publisher**는 데이터를 생성
+- **Processor**는 Publisher와 Subscriber를 중계하며 데이터를 가공
+- **Subscriber**는 데이터를 받아 처리
+- Publisher → Processor → Subscriber로 구독 관계가 설정
+- 데이터는 Publisher → Processor → Subscriber 순으로 전달
+
+<br>
+
+
+## ② Publisher 데이터 생성
+
+```java
+@Override
+public synchronized void subscribe(Flow.Subscriber<? super String> subscriber) {
+    ExecutorSubscription subscription = new ExecutorSubscription(subscriber, executor);
+    subscriber.onSubscribe(subscription);
+}
+```
+
+- `ConcurrentPublisher`에서 `subscribe()` 메서드가 호출
+- **`Processor`**`가 Publisher에 구독을 할때 요청하며, Subscription 객체가 생성되어 Processor와 Publisher를 연결`
+- 이후 `ExecutorSubscription`의 `request(n)` 메서드가 호출되면 데이터 전송이 시작
+
+<br>
+
+
+## ③ Processor가 데이터 요청
+
+```java
+@Override
+public void request(long n) {
+   future = executor.submit(() -> publishItems(n));
+}
+```
+
+<br>
+
+
+## ④ Processor에서 데이터 변환
+
+```java
+@Override
+public void onNext(T item) {
+    submit(function.apply(item));
+    subscription.request(1);
+}
+```
+
+- Processor는 Publisher로부터 데이터를 수신하여 변환
+- `function.apply(item)`을 통해 데이터를 변환하고, `변환된 데이터를 Processor의 submit 메서드를 통해 등록된 Subscriber로 전달`
+- 이후 다음 데이터를 요청하기 위해 `subscription.request(1)`을 호출
+
+<br>
+
+
+## ⑤ Subscriber에서 데이터 수신
+
+```java
+@Override
+public void onNext(String item) {
+    System.out.println(subscriberName + ", 수신 항목 : " + item);
+    maxNumber.decrementAndGet();
+
+    if (maxNumber.get() > -1) {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        subscription.request(1);
+    }
+}
+```
+
+- Subscriber는 Processor로부터 데이터를 수신하고 처리
+- 데이터가 수신될 때마다 화면에 출력하며(`System.out.println`), `maxNumber` 값을 줄여 더 이상 데이터를 요청할 수 없게 됨
+- 추가로 데이터를 요청하기 위해 `subscription.request(1)`을 호출하여 Publisher에게 데이터를 요청
+
+<br>
+
+
+## ⑥ 완료 또는 취소
+
+- 데이터 요청 횟수가 끝나거나 에러가 발생하면 각각 `onComplete()` 또는 `onError()`가 호출
+
+**● 완료 시:**
+
+```java
+@Override
+public void onComplete() {
+    System.out.println(subscriberName + ", 완료");
+    subscription.cancel();
+}
+```
+- Subscriber는 완료 메시지를 출력하고 Subscription을 취소
+
+
+**● 에러 발생 시:**
+```java
+@Override
+public void onError(Throwable throwable) {
+    throwable.printStackTrace();
+}
+```
+- 에러가 발생하면 해당 에러를 출력
+
+<br>
+
+
+## ⑦ 처리 결과
+
+```
+Subscriber-2, 수신 항목 : # Hello Subscriber!! 1값을 변환
+Subscriber-1, 수신 항목 : # Hello Subscriber!! 1값을 변환
+...
+Subscriber-2, 수신 항목 : # Hello Subscriber!! 1값을 변환
+Subscriber-2, 수신 항목 : # Hello Subscriber!! 1값을 변환
+Subscriber-1, 수신 항목 : # Hello Subscriber!! 1값을 변환
+```
+
+<br><br>
+
