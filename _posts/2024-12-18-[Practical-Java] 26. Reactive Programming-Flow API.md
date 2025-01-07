@@ -210,23 +210,8 @@ Java에서는 이러한 Reactive Streams 사양을 지원하기 위해 Java 9부
 
 ## ◼︎ 전체 흐름 요약
 
-```plaintext
-┌────────────┐   (1) subscribe(...)  ┌──────────────┐   (2) subscribe(...)  ┌────────────┐
-│  Producer  │ --------------------> │   Processor  │ --------------------> │ Subscriber │
-│(Publisher) │                       │(Pub & Subscr)│                       │ (Consumer) │
-└──────┬─────┘                       └───────┬──────┘                       └──────┬─────┘
-       │                                     │                                     │
-       │  onSubscribe(SubscriptionA)         │  onSubscribe(SubscriptionB)         │
-       │                                     │                                     │
-       │  request(n)                         │  request(m)                         │
-       │  cancel()                           │  cancel()                           │
-       ▼                                     ▼                                     │
-┌─────────────────────┐              ┌───────────────────┐                         │
-│   SubscriptionA     │ <----------> │   SubscriptionB   │ <-----------------------┘
-│  (Producer->Proc)   │   메시지/객체   │   (Proc->Subs)    │ (요청, 취소 등 조정)
-└─────────────────────┘              └───────────────────┘
-                                    onNext, onError, onComplete
-```
+[![flow-api-s1](/assets/img/2025/flow-api-s1.png)]() <br>
+
 
 1. **데이터 발행(Producer/Publisher)**  
    - 말 그대로 **데이터를 생성하거나**(예: 외부 API, 센서, DB 등), **가져와서** 전달할 준비를 하는 주체이다.  
