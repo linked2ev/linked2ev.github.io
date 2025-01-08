@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "[Practical-Java] 27. newest HttpClient"
+title:  "[Practical-Java] 28. WebSocket"
 subtitle:   "[Java]"
 categories: java
 tags: java-modern-practical
 comments: true
 ---
 
-호잇.
+h... w... j. n. ctrl cv... [java net]
