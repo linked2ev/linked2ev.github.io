@@ -540,7 +540,7 @@ byte[] responseBody = response.body();
 
 <br>
 
-### 3) **`ofFile(Path filePath)`**
+### 3) **`ofFile (Path filePath)`**
 
 HTTP 응답 본문을 지정된 파일 경로에 저장, 대용량 데이터 다운로드 및 파일 저장
 
@@ -564,7 +564,7 @@ try (InputStream is = response.body()) {
 
 <br>
 
-### 5) **`fromLineSubscriber(Flow.Subscriber<String> subscriber)`**
+### 5) **`fromLineSubscriber (Flow.Subscriber<String> subscriber)`**
 
 응답 본문을 줄 단위로 읽어 `Subscriber`로 전달. 라인 단위 데이터 처리 (예: 로그, 실시간 데이터 스트림)
 
@@ -574,7 +574,7 @@ HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.fro
 
 <br>
 
-### 6) **`fromSubscriber(Flow.Subscriber<List<ByteBuffer>> subscriber)`**
+### 6) **`fromSubscriber (Flow.Subscriber<List<ByteBuffer>> subscriber)`**
 
 HTTP 응답 본문을 `ByteBuffer` 목록으로 처리하며 `Subscriber`에 전달한다. 사용자 정의 방식으로 데이터를 처리.
 
@@ -597,7 +597,7 @@ HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.dis
 
 ## 3-2. `HttpRequest.BodyPublishers`는 HTTP 요청 본문
 
-### 1) **`ofString(String)`**
+### 1) **`ofString (String)`**
 
 요청 본문을 `String`으로 생성. 텍스트 데이터(JSON, XML, HTML 등)를 요청 본문에 포함할 때 사용
 
@@ -624,7 +624,7 @@ HttpRequest request = HttpRequest.newBuilder()
 
 <br>
 
-### 3) **`ofFile(Path filePath)`**
+### 3) **`ofFile (Path filePath)`**
 
 요청 본문을 지정된 파일로 생성, 파일을 HTTP 요청 본문으로 전송할 때 사용 (예: 파일 업로드)
 
@@ -637,7 +637,7 @@ HttpRequest request = HttpRequest.newBuilder()
 
 <br>
 
-### 4) **`ofInputStream(Supplier<InputStream>)`**
+### 4) **`ofInputStream (Supplier<InputStream>)`**
 
 요청 본문을 `InputStream`으로 생성. 스트리밍 방식으로 데이터를 요청 본문에 포함할 때 사용
 
@@ -650,7 +650,7 @@ HttpRequest request = HttpRequest.newBuilder()
 
 <br>
 
-### 5) **`fromPublisher(Flow.Publisher<ByteBuffer>)`**
+### 5) **`fromPublisher (Flow.Publisher<ByteBuffer>)`**
 
 사용자 정의 `Publisher`를 사용하여 본문 생성. 사용자 정의 데이터 소스를 요청 본문으로 전송
 
@@ -663,7 +663,7 @@ HttpRequest request = HttpRequest.newBuilder()
 
 <br>
 
-### 6) **`URL 방식 form data` http post 요청 방식
+### 6) `URL 방식 form data` http post 요청 방식
 
 ```java
 Map<String, String> formData = getFormData();
