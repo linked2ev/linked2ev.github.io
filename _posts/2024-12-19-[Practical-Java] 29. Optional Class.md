@@ -7,7 +7,7 @@ tags: java-modern-practical
 comments: true
 ---
 
-Java의 `Optional` 클래스는 **null 값을 다루는 데 있어 안전성과 가독성을 높이기 위해 도입된 클래스**입니다. `Optional` 클래스는 Java 8에서 추가되었으며,  함수형 프로그래밍을 도입하면서, `Optional` 클래스가 등장해 함수형 스타일로 안전하게 NullPointerException(NPE) 문제를 예방하고 명시적으로 값을 처리하는 방법을 제공한다.
+Java의 `Optional` 클래스는 **null 값을 다루는 데 있어 안전성과 가독성을 높이기 위해 도입된 클래스**이다. `Optional` 클래스는 Java 8에서 추가되었으며,  함수형 프로그래밍을 도입하면서, `Optional` 클래스가 등장해 함수형 스타일로 안전하게 NullPointerException(NPE) 문제를 예방하고 명시적으로 값을 처리하는 방법을 제공한다.
 
 <br>
 
@@ -50,7 +50,6 @@ Optional 객체를 생성하는 대표적인 세 가지 방법:
 #### **1. Optional.of(T value)**
 
 - 값을 반드시 제공해야 하며, `null`을 허용하지 않습니다. `null`을 넣으면 `NullPointerException`이 발생
-
 ```java
 Optional<String> optional = Optional.of("Hello");
 ```
@@ -58,7 +57,6 @@ Optional<String> optional = Optional.of("Hello");
 #### **2. Optional.ofNullable(T value)**
 
 - 값이 `null`일 수도 있고 아닐 수도 있는 경우 사용합니다. `null`인 경우, 빈 `Optional` 객체가 반환
-
 ```java
 Optional<String> optional = Optional.ofNullable(null);
 ```
@@ -66,7 +64,6 @@ Optional<String> optional = Optional.ofNullable(null);
 #### **3. Optional.empty()**
 
 - 값이 없는 빈 `Optional` 객체를 생성
-
 ```java
 Optional<String> optional = Optional.empty();
 ```
@@ -77,6 +74,7 @@ Optional<String> optional = Optional.empty();
 ## 3.2 Optional 주요 메서드와 예제
 
 #### **1. isPresent() / isEmpty()**
+
 - 값의 존재 여부를 확인
 ```java
 Optional<String> optional = Optional.ofNullable("Hello");
@@ -89,6 +87,7 @@ if (optional.isPresent()) {
 ```
 
 #### **2. get()**
+
 - Optional에 값이 있을 경우 해당 값을 반환합니다. 값이 없으면 `NoSuchElementException`이 발생하므로 주의가 필요
 ```java
 Optional<String> optional = Optional.of("Hello");
@@ -96,6 +95,7 @@ String value = optional.get(); // "Hello"
 ```
 
 #### **3. orElse()**
+
 - 값이 존재하면 반환하고, 존재하지 않으면 기본값을 반환
 ```java
 String value = Optional.ofNullable(null).orElse("Default Value");
@@ -103,6 +103,7 @@ System.out.println(value); // "Default Value"
 ```
 
 #### **4. orElseGet(Supplier<? extends T>)**
+
 - 값이 없을 때 동적으로 기본값을 생성하는 함수(Supplier)를 제공
 ```java
 String value = Optional.ofNullable(null).orElseGet(() -> "Generated Value");
@@ -110,6 +111,7 @@ System.out.println(value); // "Generated Value"
 ```
 
 #### **5. orElseThrow(Supplier<? extends Throwable>)**
+
 - 값이 없으면 예외를 throw
 ```java
 Optional<String> optional = Optional.ofNullable(null);
@@ -117,13 +119,15 @@ String value = optional.orElseThrow(() -> new IllegalArgumentException("값이 �
 ```
 
 #### **6. ifPresent(Consumer<? super T>)**
+
 - 값이 존재할 경우, 주어진 작업(Consumer)을 수행
 ```java
 Optional<String> optional = Optional.of("Hello");
 optional.ifPresent(value -> System.out.println("값: " + value)); // "값: Hello"
 ```
 
-#### **7. ifPresentOrElse(Consumer<? super T>, Runnable) (Java 9+)**
+#### **7. ifPresentOrElse(Consumer<? super T>, Runnable)**
+
 - 값이 존재하면 첫 번째 작업을 실행하고, 값이 없으면 두 번째 작업을 실행
 ```java
 Optional<String> optional = Optional.ofNullable(null);
@@ -134,6 +138,7 @@ optional.ifPresentOrElse(
 ```
 
 #### **8. map(Function<? super T, ? extends U>)**
+
 - 값이 존재하면 매핑 함수로 변환하여 새 Optional 객체를 반환합
 ```java
 Optional<String> optional = Optional.of("Hello");
@@ -141,7 +146,8 @@ Optional<Integer> length = optional.map(String::length);
 System.out.println(length.get()); // 5
 ```
 
-#### **9. flatMap(Function<? super T, Optional<U>> mapper)**
+#### **9. flatMap(Function<? super T, Optional< U >> mapper)**
+
 - Optional 내부에서 또 다른 Optional을 생성하는 경우, 중첩을 방지
 ```java
 Optional<String> optional = Optional.of("Hello");
@@ -150,6 +156,7 @@ System.out.println(upperCase.get()); // "HELLO"
 ```
 
 #### **10. filter(Predicate<? super T>)**
+
 - 값이 존재하고 조건(Predicate)을 만족하면 값을 포함한 Optional을 반환하고, 그렇지 않으면 빈 Optional을 반환
 ```java
 Optional<String> optional = Optional.of("Hello");
@@ -205,23 +212,6 @@ public class OptionalExample {
     }
 }
 ```
-
-<br><br>
-
-
-# 4. Optional 사용 시 주의점
-
-1. **필드에는 사용하지 말 것**
-   - `Optional`은 주로 메서드 반환값에 사용되며, 클래스 필드에는 사용하지 않는 것이 좋습니다.
-   - 이유: 직렬화, 성능 문제, 과도한 사용으로 인한 복잡성 증가.
-
-2. **컬렉션에서 Optional 사용 지양**
-   - `Optional`로 감싸진 컬렉션은 불필요한 중첩을 초래합니다.
-   - 대신, 컬렉션이 비어 있으면 빈 리스트나 배열을 반환하세요.
-
-3. **과용하지 말 것**
-   - 모든 `null` 처리에 `Optional`을 사용하는 것은 비효율적일 수 있습니다.
-   - 적절한 상황에서 사용하는 것이 중요합니다.
 
 <br><br>
 
