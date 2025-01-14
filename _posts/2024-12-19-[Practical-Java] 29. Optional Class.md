@@ -50,6 +50,7 @@ Optional 객체를 생성하는 대표적인 세 가지 방법:
 #### **1. Optional.of(T value)**
 
 - 값을 반드시 제공해야 하며, `null`을 허용하지 않습니다. `null`을 넣으면 `NullPointerException`이 발생
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 ```
@@ -57,6 +58,7 @@ Optional<String> optional = Optional.of("Hello");
 #### **2. Optional.ofNullable(T value)**
 
 - 값이 `null`일 수도 있고 아닐 수도 있는 경우 사용합니다. `null`인 경우, 빈 `Optional` 객체가 반환
+
 ```java
 Optional<String> optional = Optional.ofNullable(null);
 ```
@@ -64,6 +66,7 @@ Optional<String> optional = Optional.ofNullable(null);
 #### **3. Optional.empty()**
 
 - 값이 없는 빈 `Optional` 객체를 생성
+
 ```java
 Optional<String> optional = Optional.empty();
 ```
@@ -76,6 +79,7 @@ Optional<String> optional = Optional.empty();
 #### **1. isPresent(), isEmpty()**
 
 - 값의 존재 여부를 확인
+
 ```java
 Optional<String> optional = Optional.ofNullable("Hello");
 
@@ -89,6 +93,7 @@ if (optional.isPresent()) {
 #### **2. get()**
 
 - Optional에 값이 있을 경우 해당 값을 반환합니다. 값이 없으면 `NoSuchElementException`이 발생하므로 주의가 필요
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 String value = optional.get(); // "Hello"
@@ -97,6 +102,7 @@ String value = optional.get(); // "Hello"
 #### **3. orElse()**
 
 - 값이 존재하면 반환하고, 존재하지 않으면 기본값을 반환
+
 ```java
 String value = Optional.ofNullable(null).orElse("Default Value");
 System.out.println(value); // "Default Value"
@@ -105,6 +111,7 @@ System.out.println(value); // "Default Value"
 #### **4. orElseGet(Supplier<? extends T>)**
 
 - 값이 없을 때 동적으로 기본값을 생성하는 함수(Supplier)를 제공
+
 ```java
 String value = Optional.ofNullable(null).orElseGet(() -> "Generated Value");
 System.out.println(value); // "Generated Value"
@@ -113,6 +120,7 @@ System.out.println(value); // "Generated Value"
 #### **5. orElseThrow(Supplier<? extends Throwable>)**
 
 - 값이 없으면 예외를 throw
+
 ```java
 Optional<String> optional = Optional.ofNullable(null);
 String value = optional.orElseThrow(() -> new IllegalArgumentException("값이 없습니다!"));
@@ -121,6 +129,7 @@ String value = optional.orElseThrow(() -> new IllegalArgumentException("값이 �
 #### **6. ifPresent(Consumer<? super T>)**
 
 - 값이 존재할 경우, 주어진 작업(Consumer)을 수행
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 optional.ifPresent(value -> System.out.println("값: " + value)); // "값: Hello"
@@ -129,6 +138,7 @@ optional.ifPresent(value -> System.out.println("값: " + value)); // "값: Hello
 #### **7. ifPresentOrElse(Consumer<? super T>, Runnable)**
 
 - 값이 존재하면 첫 번째 작업을 실행하고, 값이 없으면 두 번째 작업을 실행
+
 ```java
 Optional<String> optional = Optional.ofNullable(null);
 optional.ifPresentOrElse(
@@ -140,6 +150,7 @@ optional.ifPresentOrElse(
 #### **8. map(Function<? super T, ? extends U>)**
 
 - 값이 존재하면 매핑 함수로 변환하여 새 Optional 객체를 반환합
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 Optional<Integer> length = optional.map(String::length);
@@ -149,6 +160,7 @@ System.out.println(length.get()); // 5
 #### **9. flatMap(Function<? super T, Optional<U>> mapper)**
 
 - Optional 내부에서 또 다른 Optional을 생성하는 경우, 중첩을 방지
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 Optional<String> upperCase = optional.flatMap(value -> Optional.of(value.toUpperCase()));
@@ -158,6 +170,7 @@ System.out.println(upperCase.get()); // "HELLO"
 #### **10. filter(Predicate<? super T>)**
 
 - 값이 존재하고 조건(Predicate)을 만족하면 값을 포함한 Optional을 반환하고, 그렇지 않으면 빈 Optional을 반환
+
 ```java
 Optional<String> optional = Optional.of("Hello");
 optional.filter(value -> value.startsWith("H"))
