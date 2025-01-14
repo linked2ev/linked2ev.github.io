@@ -73,7 +73,7 @@ Optional<String> optional = Optional.empty();
 
 ## 3.2 Optional 주요 메서드와 예제
 
-#### **1. isPresent() / isEmpty()**
+#### **1. isPresent(), isEmpty()**
 
 - 값의 존재 여부를 확인
 ```java
@@ -146,7 +146,7 @@ Optional<Integer> length = optional.map(String::length);
 System.out.println(length.get()); // 5
 ```
 
-#### **9. flatMap(Function<? super T, Optional< U >> mapper)**
+#### **9. flatMap(Function<? super T, Optional<U>> mapper)**
 
 - Optional 내부에서 또 다른 Optional을 생성하는 경우, 중첩을 방지
 ```java
