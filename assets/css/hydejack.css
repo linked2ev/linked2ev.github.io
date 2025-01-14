@@ -117,8 +117,12 @@
 }
 
 .markdown-body .highlight {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   margin-bottom: 16px;
+}
+
+.markdown-body table {
+  margin-left: 1rem;
 }
 
 .markdown-body .highlight pre,
