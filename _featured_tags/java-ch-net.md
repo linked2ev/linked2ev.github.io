@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Java 정석
-slug: java-ch-mid
+title: Java N/W
+slug: java-ch-net
 category: java
 menu: false
-order: 3
+order: 6
 ---
