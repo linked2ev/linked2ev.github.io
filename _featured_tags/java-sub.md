@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Java 개념
+title: Java Base
 slug: java-sub
 category: java
 menu: false

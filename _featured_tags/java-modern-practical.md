@@ -4,6 +4,6 @@ title: Java Practical
 slug: java-modern-practical
 category: java
 menu: false
-order: 7
+order: 11
 ---
 

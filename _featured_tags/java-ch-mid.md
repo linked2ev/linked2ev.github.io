@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Java 정석
+title: Java Standard
 slug: java-ch-mid
 category: java
 menu: false

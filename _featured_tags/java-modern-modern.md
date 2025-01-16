@@ -1,8 +1,9 @@
 ---
 layout: tag-blog
-title: SOLID Principles
-slug: java-solid
+title: Java FP
+slug: java-modern-modern
 category: java
 menu: false
-order: 13
+order: 14
 ---
+

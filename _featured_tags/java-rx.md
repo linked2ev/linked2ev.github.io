@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: SOLID Principles
-slug: java-solid
+title: Reactive Java
+slug: java-reactive
 category: java
 menu: false
-order: 13
+order: 15
 ---

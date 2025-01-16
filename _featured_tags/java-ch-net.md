@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Java N/W
+title: Java Network
 slug: java-ch-net
 category: java
 menu: false
