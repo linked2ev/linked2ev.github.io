@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Java FP
+title: Modern Java
 slug: java-modern-modern
 category: java
 menu: false
