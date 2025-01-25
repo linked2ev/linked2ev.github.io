@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: SOLID Principles
-slug: java-solid
-category: java
+slug: dd-solid
+category: dd
 menu: false
-order: 13
+order: 1
 ---
