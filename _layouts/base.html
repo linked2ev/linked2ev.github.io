@@ -44,7 +44,7 @@ layout: compress
 
 <script>
   $(document).ready(function() {
-    if (window.location.pathname.indexOf('/gisalog/') == -1 && window.location.hash.includes('202501') != -1 ) {
+    if (window.location.pathname.indexOf('/gisalog/') != -1 && window.location.hash.includes('202501') != -1 ) {
       window.location.replace("https://linked2ev.github.io/");
     }
   });
